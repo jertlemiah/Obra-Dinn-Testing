@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
     private InputMaster playerControls;
     private static InputManager _instance;
 
+
     public static InputManager Instance {
         get {
             return _instance;
@@ -24,6 +25,11 @@ public class InputManager : MonoBehaviour
         }
         playerControls = new InputMaster();
         Cursor.visible = false;
+    }
+
+    public InputMaster GetInputActions()
+    {
+        return playerControls;
     }
 
     public Vector2 GetPlayerMovement()
