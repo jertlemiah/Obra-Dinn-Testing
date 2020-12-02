@@ -1,0 +1,157 @@
+[
+    {
+        "name": "Unknown",
+        "hasdetails": 0,
+        "haskiller": 0,
+        "sentence": " met an unknown fate."
+    },
+    {
+        "name": "Alive",
+        "hasdetails": 1,
+        "details": ["Africa", "West Indies"],
+        "haskiller": 0,
+        "sentence": " is alive in [details]."
+    },
+    {
+        "name": "Axed",
+        "hasdetails": 0,
+        "haskiller": 1,
+        "sentence": " was axed by [killer]."
+    },
+    {
+        "name": "Burned",
+        "hasdetails": 0,
+        "haskiller": 0,
+        "sentence": " burned to death."
+    },
+    {
+        "name": "Clawed",
+        "hasdetails": 0,
+        "haskiller": 0,
+        "sentence": " was clawed by a terrible beast."
+    },
+    {
+        "name": "Clubbed",
+        "hasdetails": 0,
+        "haskiller": 1,
+        "sentence": " was clubbed \\nby [killer]."
+    },
+    {
+        "name": "Crushed",
+        "hasdetails": 1,
+        "details": ["Beast", "Cannon", "Cargo", "Rigging", "Stones"],
+        "haskiller": 0,
+        "sentence": " was crushed \\nby [details]."
+    },
+    {
+        "name": "Decapitated",
+        "hasdetails": 0,
+        "haskiller": 1,
+        "sentence": " was decapitated \\nby [killer]."
+    },
+    {
+        "name": "Drowned",
+        "hasdetails": 0,
+        "haskiller": 1,
+        "sentence": " was drowned \\nby [killer]."
+    },
+    {
+        "name": "Eaten",
+        "hasdetails": 0,
+        "haskiller": 1,
+        "sentence": " was eaten \\nby [killer]."
+    },
+    {
+        "name": "Electrocuted",
+        "hasdetails": 0,
+        "haskiller": 0,
+        "sentence": " was electrocuted."
+    },
+    {
+        "name": "Expired",
+        "hasdetails": 0,
+        "haskiller": 0,
+        "sentence": " expired from old age."
+    },
+    {
+        "name": "Fell",
+        "hasdetails": 0,
+        "haskiller": 0,
+        "sentence": " fell to [pronoun] death."
+    },
+    {
+        "name": "Froze",
+        "hasdetails": 0,
+        "haskiller": 0,
+        "sentence": " froze to death."
+    },
+    {
+        "name": "Illness",
+        "hasdetails": 0,
+        "haskiller": 0,
+        "sentence": " succumbed to a tragic illnesss."
+    },
+    {
+        "name": "Killed (sword)",
+        "hasdetails": 0,
+        "haskiller": 1,
+        "sentence": " was killed with a sword \\nby [killer]."
+    },
+    {
+        "name": "Knifed",
+        "hasdetails": 0,
+        "haskiller": 1,
+        "sentence": " was killed with a knife \\nby [killer]."
+    },
+    {
+        "name": "Poisoned",
+        "hasdetails": 0,
+        "haskiller": 0,
+        "sentence": " was poisoned."
+    },
+    {
+        "name": "Shot",
+        "hasdetails": 1,
+        "details": ["Arrow", "Cannon", "Gun"],
+        "haskiller": 1,
+        "sentence": " was shot with [details] \\nby [killer]."
+    },
+    {
+        "name": "Speared",
+        "hasdetails": 0,
+        "haskiller": 1,
+        "sentence": " was speared \\nby [killer]."
+    },
+    {
+        "name": "Spiked",
+        "hasdetails": 0,
+        "haskiller": 0,
+        "sentence": " was spiked by a terrible beast."
+    },
+    {
+        "name": "Strangled",
+        "hasdetails": 0,
+        "haskiller": 1,
+        "sentence": " was strangled by [killer]."
+    },
+    {
+        "name": "Struck",
+        "hasdetails": 1,
+        "details": ["Tail", "Hoof", "Wing"],
+        "haskiller": 0,
+        "sentence": " was struck dead \\nby a beast's [details]."
+    },
+    {
+        "name": "Suicide",
+        "hasdetails": 1,
+        "details": ["Gun", "Noose", "Knife"],
+        "haskiller": 0,
+        "sentence": " comitted suicide ([details])."
+    },
+    {
+        "name": "Torn Apart",
+        "hasdetails": 0,
+        "haskiller": 0,
+        "sentence": " was torn apart \\nby a terrible beast."
+    }
+]
