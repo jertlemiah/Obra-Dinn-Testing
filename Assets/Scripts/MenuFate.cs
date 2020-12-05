@@ -23,7 +23,10 @@ public class MenuFate : MonoBehaviour
     {
         currentFate = fatePage;
         UI_FateReasonPopup.SetActive(true);
-        name_TMPtext.text = fatePage.currentName;
+
+        name_TMPtext.text = currentFate.currentName;
+        fateReason_TMPtext.text = currentFate.currentReason;
+        attacker_TMPtext.text = currentFate.currentAttacker;
     }
 }
 
