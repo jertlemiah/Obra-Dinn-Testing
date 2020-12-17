@@ -9,6 +9,12 @@ public class MenuFate : MonoBehaviour
     public TMP_Text name_TMPtext, fateReason_TMPtext, attacker_TMPtext;
     public FatePage currentFate;
 
+    public void SelectNewFate(FateReason fateReason)
+    {
+        currentFate.currentReason = fateReason.name;
+        ToggleFateReasonPopup();
+    }
+
     public void ToggleFateReasonPopup()
     {
         if (UI_FateReasonPopup.activeSelf == true) {

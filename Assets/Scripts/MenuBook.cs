@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MenuBook : MonoBehaviour
 {
+    public int currentLeftPage = 1;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,25 @@ public class MenuBook : MonoBehaviour
         
     }
 
+    //public void OpenFateMenu()
+    //{
 
+    //}
+
+    public void TurnPageForward()
+    {
+        currentLeftPage++;
+    }
+
+    public void TurnPageBackward()
+    {
+        currentLeftPage--;
+    }
+
+    public void GoToPageNumber(int pageNumber)
+    {
+        currentLeftPage = pageNumber;
+    }
 }
 
 //[System.Serializable]

@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using TMPro;
 
 public class ButtonController : MonoBehaviour,
-    ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
+    /*ISelectHandler, IDeselectHandler,*/ IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField]
     GameObject UiSelector, UiSelected, UiPressed;
@@ -28,15 +28,15 @@ public class ButtonController : MonoBehaviour,
 
     }
 
-    public void OnSelect(BaseEventData eventData)
-    {
-        UiSelected.SetActive(true);
-    }
+    //public void OnSelect(BaseEventData eventData)
+    //{
+    //    UiSelected.SetActive(true);
+    //}
 
-    public void OnDeselect(BaseEventData eventData)
-    {
-        UiSelected.SetActive(false);
-    }
+    //public void OnDeselect(BaseEventData eventData)
+    //{
+    //    UiSelected.SetActive(false);
+    //}
 
     public void OnPointerEnter(PointerEventData eventData)
     {
