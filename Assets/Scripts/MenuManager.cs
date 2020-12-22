@@ -16,7 +16,7 @@ public class MenuManager : MonoBehaviour
     {
         inputManager = InputManager.Instance;
         // Every time the OpenBook action is performed, run the OpenBook function here
-        inputManager.GetInputActions().Player.OpenBook.performed += context => ToggleBook();
+        inputManager.GetInputActions().Player.ToggleBook.performed += context => ToggleBook();
     }
 
     void ToggleBook()

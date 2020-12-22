@@ -10,16 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73fe7e53565fa7c4e8300cff8303a7a7, type: 3}
-  m_Name: Crew #2
+  m_Name: Crew #35
   m_EditorClassIdentifier: 
-  internalID: 2
+  internalID: 35
   correctFate: 0
   confirmedFate: 0
+  hasAttacker: 1
   currentName: Unknown
-  correctName: William Hoscut
-  currentReason: Unknown
+  correctName: Charles Hershtik
   currentAttacker: Unknown
+  currentReason: {fileID: 0}
   acceptableFates:
-  - reason: Shot (gun)
-    attacker: Robert Witterel
-  portrait: {fileID: 21300000, guid: 80682d634f38e654da037f04335c5912, type: 3}
+  - reason: {fileID: 11400000, guid: 662afab0b8dcf24409486e457beef653, type: 2}
+    attacker: 
+  - reason: {fileID: 11400000, guid: 09a53526ebaf50a46b2ab5d86f161a1c, type: 2}
+    attacker: Beast
+  portrait: {fileID: 21300000, guid: 04112e5414ff1174fa0cfc57dc703f4c, type: 3}

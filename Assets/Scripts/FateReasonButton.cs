@@ -3,46 +3,78 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.UI;
 
-public class FateReasonButton : MonoBehaviour, 
-    ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
+public class FateReasonButton : ButtonController
 {
     [SerializeField]
-    GameObject SelectorArrows, SelectedOutline, PressedBackground;
+    public FateReason fateReason;
     [SerializeField]
-    TMP_Text text;
-    [SerializeField]
-    Color darkColor, lightColor;
+    public GameObject detailsArrow;
+    //public bool
 
-    public void OnSelect(BaseEventData eventData)
+    public void updateFateReason(FateReason fr)
     {
-        SelectedOutline.SetActive(true);
+        fateReason = fr;
+        updateButtonDisplay();
     }
 
-    public void OnDeselect(BaseEventData eventData)
+    public void setButtonInactive()
     {
-        SelectedOutline.SetActive(false);
+        this.GetComponent<Button>().enabled = false;
+        this.tmpText.text = "";
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void updateButtonDisplay()
     {
-        SelectorArrows.SetActive(true);
-    }
+        this.GetComponent<Button>().enabled = true;
+        this.tmpText.text = fateReason.name;
+        if (fateReason.hasDetails)
+        {
+            detailsArrow.SetActive(true);
+        }
+        else
+        {
+            detailsArrow.SetActive(false);
+        }
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        SelectorArrows.SetActive(false);
     }
+    //[SerializeField]
+    //GameObject SelectorArrows, SelectedOutline, PressedBackground;
+    //[SerializeField]
+    //TMP_Text text;
+    //[SerializeField]
+    //Color darkColor, lightColor;
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        PressedBackground.SetActive(true);
-        text.color = darkColor;
-    }
+    //public void OnSelect(BaseEventData eventData)
+    //{
+    //    SelectedOutline.SetActive(true);
+    //}
 
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        PressedBackground.SetActive(false);
-        text.color = lightColor;
-    }
+    //public void OnDeselect(BaseEventData eventData)
+    //{
+    //    SelectedOutline.SetActive(false);
+    //}
+
+    //public void OnPointerEnter(PointerEventData eventData)
+    //{
+    //    SelectorArrows.SetActive(true);
+    //}
+
+    //public void OnPointerExit(PointerEventData eventData)
+    //{
+    //    SelectorArrows.SetActive(false);
+    //}
+
+    //public void OnPointerDown(PointerEventData eventData)
+    //{
+    //    PressedBackground.SetActive(true);
+    //    text.color = darkColor;
+    //}
+
+    //public void OnPointerUp(PointerEventData eventData)
+    //{
+    //    PressedBackground.SetActive(false);
+    //    text.color = lightColor;
+    //}
 }

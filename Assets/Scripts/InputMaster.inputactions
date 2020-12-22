@@ -38,9 +38,17 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Open Book",
+                    "name": "Toggle Book",
                     "type": "Button",
                     "id": "69191735-378f-4c33-9fd8-cd8686fba377",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ESC",
+                    "type": "Button",
+                    "id": "5a676538-ff23-48ae-960d-96dc6bf0c37c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -142,7 +150,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Open Book",
+                    "action": "Toggle Book",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1ec3ccf8-1fc8-40ac-9346-d6b4790ee36f",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ESC",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

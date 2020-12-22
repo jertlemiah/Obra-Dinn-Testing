@@ -51,9 +51,17 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Open Book"",
+                    ""name"": ""Toggle Book"",
                     ""type"": ""Button"",
                     ""id"": ""69191735-378f-4c33-9fd8-cd8686fba377"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ESC"",
+                    ""type"": ""Button"",
+                    ""id"": ""5a676538-ff23-48ae-960d-96dc6bf0c37c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -155,7 +163,18 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Open Book"",
+                    ""action"": ""Toggle Book"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1ec3ccf8-1fc8-40ac-9346-d6b4790ee36f"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ESC"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -176,7 +195,8 @@ public class @InputMaster : IInputActionCollection, IDisposable
         m_Player_MousePosition = m_Player.FindAction("Mouse Position", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_OpenBook = m_Player.FindAction("Open Book", throwIfNotFound: true);
+        m_Player_ToggleBook = m_Player.FindAction("Toggle Book", throwIfNotFound: true);
+        m_Player_ESC = m_Player.FindAction("ESC", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -230,7 +250,8 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_MousePosition;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Jump;
-    private readonly InputAction m_Player_OpenBook;
+    private readonly InputAction m_Player_ToggleBook;
+    private readonly InputAction m_Player_ESC;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -239,7 +260,8 @@ public class @InputMaster : IInputActionCollection, IDisposable
         public InputAction @MousePosition => m_Wrapper.m_Player_MousePosition;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputAction @OpenBook => m_Wrapper.m_Player_OpenBook;
+        public InputAction @ToggleBook => m_Wrapper.m_Player_ToggleBook;
+        public InputAction @ESC => m_Wrapper.m_Player_ESC;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -261,9 +283,12 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @OpenBook.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenBook;
-                @OpenBook.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenBook;
-                @OpenBook.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenBook;
+                @ToggleBook.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleBook;
+                @ToggleBook.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleBook;
+                @ToggleBook.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleBook;
+                @ESC.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnESC;
+                @ESC.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnESC;
+                @ESC.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnESC;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -280,9 +305,12 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @OpenBook.started += instance.OnOpenBook;
-                @OpenBook.performed += instance.OnOpenBook;
-                @OpenBook.canceled += instance.OnOpenBook;
+                @ToggleBook.started += instance.OnToggleBook;
+                @ToggleBook.performed += instance.OnToggleBook;
+                @ToggleBook.canceled += instance.OnToggleBook;
+                @ESC.started += instance.OnESC;
+                @ESC.performed += instance.OnESC;
+                @ESC.canceled += instance.OnESC;
             }
         }
     }
@@ -302,6 +330,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         void OnMousePosition(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnOpenBook(InputAction.CallbackContext context);
+        void OnToggleBook(InputAction.CallbackContext context);
+        void OnESC(InputAction.CallbackContext context);
     }
 }

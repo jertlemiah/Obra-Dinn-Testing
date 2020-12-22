@@ -5,23 +5,29 @@ using Newtonsoft.Json.Linq;
 using System.IO;
 using Newtonsoft.Json;
 using TMPro;
+using UnityEditor;
+using System.Linq;
+using UnityEngine.UI;
 
 public class MenuFateReason : MonoBehaviour
 {
     public string fileName;
     public List<FateReason> fateReasons = new List<FateReason>();
+    //public FateReason[] fateReasons;
     public GameObject buttonGroup,
         btn_pageRight, btn_pageLeft;
     public List<GameObject> buttons = new List<GameObject>();
     public int currentPage = 1,
         pageCount = 1;
+    public string fatesDestinationFolder = "Assets/Game Objects/Scriptable Objects/Fate Reasons/Resources";
     
     // Start is called before the first frame update
     void Start()
     {
         GetButtonObjects();
         Debug.Log("Count in buttons List " + buttons.Count);
-        ReadFateReasonsFile();
+        //ReadFateReasonsFile();
+        LoadCreatedFateReasons();
         ChangePage(0);
     }
 
@@ -64,41 +70,116 @@ public class MenuFateReason : MonoBehaviour
     private void PopulateButtons()
     {
         pageCount = (int)Mathf.Ceil(fateReasons.Count / buttons.Count);
+        //pageCount = (int)Mathf.Ceil(fateReasons.Length / buttons.Count);
         int i = 0;
-        foreach (GameObject button in buttons)
+        foreach (GameObject buttonObj in buttons)
         {
-            TMP_Text btnTMPobj = button.GetComponentInChildren<TMP_Text>();
-            btnTMPobj.text = fateReasons[i + (currentPage-1)*buttons.Count].name;
+            //TMP_Text btnTMPobj = buttonObj.GetComponentInChildren<TMP_Text>();
+            //btnTMPobj.text = fateReasons[i + (currentPage-1)*buttons.Count].name;
+
+            FateReasonButton buttonScript = buttonObj.GetComponent<FateReasonButton>();
+
+            if ((i + (currentPage - 1) * buttons.Count) >= fateReasons.Count)
+            {
+                //buttonObj.SetActive(false);                
+                buttonScript.setButtonInactive();
+                buttonScript.enabled = false;
+               
+            }
+            else
+            {
+                buttonScript.enabled = true;
+                //buttonObj.SetActive(true);
+                //buttonObj.GetComponent<Button>().enabled = true;
+                buttonScript.updateFateReason(fateReasons[i + (currentPage - 1) * buttons.Count]);
+            }
+
             i++;
         }
     }
 
-    private void ReadFateReasonsFile()
+    private void LoadCreatedFateReasons()
     {
-        //JObject obj = JObject.Parse(File.ReadAllText(fileName));
-        fateReasons = JsonConvert.DeserializeObject<List<FateReason>>(File.ReadAllText(fileName));
-        Debug.Log(fateReasons.Count + " fateReasons found in json file");
-        foreach (FateReason reason in fateReasons)
-        {
+        fateReasons.Clear();
+        fateReasons = Resources.LoadAll("", typeof(FateReason)).Cast< FateReason>().ToList<FateReason>();
+        //Debug.Log("Loaded " + fateReasons.Count + " fateReason scriptable objects from the folder: " + fatesDestinationFolder);
+    }
 
-            Debug.Log(reason.name + " has details?: " + reason.hasDetails);
-            if (reason.hasDetails == true)
+    public void ReadFateReasonsFile()
+    {
+        fateReasons.Clear();
+        //if (Directory.Exists(fatesDestinationFolder) == true)
+        //{
+        //    Directory.Delete(fatesDestinationFolder, true);
+        //}
+        //Directory.CreateDirectory(fatesDestinationFolder);
+
+        List<FateReasonJson> fateReasonsJson = JsonConvert.DeserializeObject<List<FateReasonJson>>(File.ReadAllText(fileName));
+
+        foreach (FateReasonJson reasonJson in fateReasonsJson)
+        {
+            //Debug.Log(reasonJson.name + " has details?: " + reasonJson.hasDetails);
+            if (reasonJson.hasDetails == true)
             {
-                foreach (string detail in reason.details)
+
+                foreach (string detail in reasonJson.details)
                 {
-                    Debug.Log(" option: " + detail);
+                    //Debug.Log(" option: " + detail);
+                    FateReason newReason = ScriptableObject.CreateInstance<FateReason>();
+                    newReason.name = reasonJson.name;
+                    newReason.sentence = reasonJson.sentence;
+                    newReason.hasDetails = reasonJson.hasDetails;
+                    newReason.requiresAttacker = reasonJson.requiresAttacker;
+                    newReason.detail = detail;
+                    fateReasons.Add(newReason);
                 }
             }
+            else
+            {
+                FateReason newReason = ScriptableObject.CreateInstance<FateReason>();
+                newReason.name = reasonJson.name;
+                newReason.sentence = reasonJson.sentence;
+                newReason.hasDetails = reasonJson.hasDetails;
+                newReason.requiresAttacker = reasonJson.requiresAttacker;
+                fateReasons.Add(newReason);
+            }
         }
+
+        Debug.Log("How many elements are in fateReasons? " + fateReasons.Count);
+
+        foreach (var reason in fateReasons)
+        {
+            string assetName = "";
+            if (reason.hasDetails)
+            {
+                assetName = reason.name + " (" + reason.detail + ").asset";
+            }
+            else
+            {
+                assetName = reason.name + ".asset";
+            }
+            Debug.Log("Creating FateReason asset '" + assetName + "' in " + fatesDestinationFolder);
+            if(File.Exists(fatesDestinationFolder + "/" + assetName) == true)
+            {
+                //File.Delete(fatesDestinationFolder + "/" + assetName);
+                Debug.Log("Skipping already existing FateReason '" + assetName + "'");
+            }
+            else
+            {
+                AssetDatabase.CreateAsset(reason, fatesDestinationFolder + "/" + assetName);
+            }
+            
+        }
+        LoadCreatedFateReasons();
     }
 }
 
 [System.Serializable]
-public class FateReason
+public class FateReasonJson
 {
     public string name,
         sentence;
     public bool hasDetails = false,
-        hasKiller = false;
+        requiresAttacker = false;
     public string[] details;
 }

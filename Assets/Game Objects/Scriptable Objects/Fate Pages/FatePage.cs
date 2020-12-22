@@ -8,12 +8,16 @@ public class FatePage : ScriptableObject
     public int internalID = 0;
 
     public bool correctFate = false,
-        confirmedFate = false;
+        confirmedFate = false,
+        hasAttacker = true;
 
     public string currentName = "Unknown",
         correctName,
-        currentReason = "Unknown",
+        //currentReason = "Unknown",
+        //currentDetails = "Unknown",
         currentAttacker = "Unknown";
+    [SerializeField]
+    public FateReason currentReason;
 
     [SerializeField]
     public AcceptableFate[] acceptableFates;
@@ -47,11 +51,12 @@ public class FatePage : ScriptableObject
 [System.Serializable]
 public class AcceptableFate
 {
-    public string reason, attacker;
+    public FateReason reason;
+    public string attacker;
 
     AcceptableFate() { }
 
-    AcceptableFate(string reason, string attacker)
+    AcceptableFate(FateReason reason, string attacker)
     {
         this.reason = reason;
         this.attacker = attacker;

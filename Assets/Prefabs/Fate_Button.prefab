@@ -135,12 +135,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c6214ac30001f40961491037e166d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectorArrows: {fileID: 2951952074029826681}
-  SelectedOutline: {fileID: 2951952072966215259}
-  PressedBackground: {fileID: 2951952072966215259}
-  text: {fileID: 2078175587466001870}
-  darkColor: {r: 0.12941177, g: 0.1254902, b: 0.007843138, a: 1}
-  lightColor: {r: 0.12941177, g: 0.1254902, b: 0.007843138, a: 1}
+  UiSelector: {fileID: 2951952074029826681}
+  UiSelected: {fileID: 2951952072966215259}
+  UiPressed: {fileID: 2951952072966215259}
+  colorDarkText: {r: 0.12941177, g: 0.1254902, b: 0.007843138, a: 1}
+  colorLightText: {r: 0.8980392, g: 1, b: 0.99607843, a: 1}
+  hasText: 0
+  tmpText: {fileID: 2078175587466001870}
+  isFateBox: 0
+  fatePage: {fileID: 0}
+  fateReason: {fileID: 0}
 --- !u!1 &2951952072966215259
 GameObject:
   m_ObjectHideFlags: 0
