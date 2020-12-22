@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class MenuFate : MonoBehaviour
 {
-    public GameObject UI_FateReasonPopup;
+    public GameObject UI_FateReasonPopup,
+        portraitObj;
     public TMP_Text name_TMPtext, fateReason_TMPtext, attacker_TMPtext;
-    public FatePage currentFate;
+    public FatePage currentFatePage;
 
     private void Start()
     {
@@ -16,7 +18,7 @@ public class MenuFate : MonoBehaviour
 
     public void SelectNewFate(FateReason fateReason)
     {
-        currentFate.currentReason = fateReason;
+        currentFatePage.currentReason = fateReason;
         ToggleFateReasonPopup();
     }
 
@@ -32,35 +34,36 @@ public class MenuFate : MonoBehaviour
 
     public void PopulatePage()
     {
-        if(currentFate.currentName == "Unknown")
+        if(currentFatePage.currentName == "Unknown")
         {
             name_TMPtext.text = "This unknown soul";
         }
         else
         {
-            name_TMPtext.text = currentFate.currentName;
+            name_TMPtext.text = currentFatePage.currentName;
         }
         
-        fateReason_TMPtext.text = currentFate.currentReason.sentence;
-        if(currentFate.hasAttacker == true)
+        fateReason_TMPtext.text = currentFatePage.currentReason.sentence;
+        if(currentFatePage.hasAttacker == true)
         {
-            attacker_TMPtext.text = currentFate.currentAttacker;
+            attacker_TMPtext.text = currentFatePage.currentAttacker;
         }
         else
         {
             attacker_TMPtext.text = "";
         }
 
+        portraitObj.GetComponent<Image>().sprite = currentFatePage.portrait;
     }
 
     public void OpenFatePopup(FatePage fatePage)
     {
-        currentFate = fatePage;
+        currentFatePage = fatePage;
         UI_FateReasonPopup.SetActive(true);
 
-        name_TMPtext.text = currentFate.currentName;
-        fateReason_TMPtext.text = currentFate.currentReason.sentence;
-        attacker_TMPtext.text = currentFate.currentAttacker;
+        name_TMPtext.text = currentFatePage.currentName;
+        fateReason_TMPtext.text = currentFatePage.currentReason.sentence;
+        attacker_TMPtext.text = currentFatePage.currentAttacker;
     }
 
     //public void OpenFatePopup(FatePage fatePage)

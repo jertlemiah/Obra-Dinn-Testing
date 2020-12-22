@@ -15,7 +15,7 @@ MonoBehaviour:
   internalID: 2
   correctFate: 0
   confirmedFate: 0
-  hasAttacker: 1
+  hasAttacker: 0
   currentName: Unknown
   correctName: William Hoscut
   currentAttacker: Unknown

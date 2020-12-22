@@ -15,5 +15,10 @@ public class Editor_FateReasonMenu : Editor
         {
             myTarget.ReadFateReasonsFile();
         }
+
+        if (GUILayout.Button("Switch Fate Popup"))
+        {
+            myTarget.SwitchFatePopup();
+        }
     }
 }

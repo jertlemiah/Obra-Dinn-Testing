@@ -9,7 +9,7 @@ public class FatePage : ScriptableObject
 
     public bool correctFate = false,
         confirmedFate = false,
-        hasAttacker = true;
+        hasAttacker = false;
 
     public string currentName = "Unknown",
         correctName,
