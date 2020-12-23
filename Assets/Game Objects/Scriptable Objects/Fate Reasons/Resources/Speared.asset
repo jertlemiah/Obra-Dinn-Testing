@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de2c370093fbcb4eb5fced94f34d7fe, type: 3}
   m_Name: Speared
   m_EditorClassIdentifier: 
-  name: Speared
-  detail: 
+  fateName: Speared
+  detail: garbage
   sentence: ' was speared \nby [killer].'
   hasDetails: 0
   requiresAttacker: 1

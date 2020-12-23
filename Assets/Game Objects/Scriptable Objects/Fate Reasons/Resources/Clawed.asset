@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de2c370093fbcb4eb5fced94f34d7fe, type: 3}
   m_Name: Clawed
   m_EditorClassIdentifier: 
-  name: Clawed
-  detail: 
+  fateName: Clawed
+  detail: garbage
   sentence: ' was clawed by a terrible beast.'
   hasDetails: 0
   requiresAttacker: 0

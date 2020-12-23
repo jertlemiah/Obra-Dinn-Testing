@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de2c370093fbcb4eb5fced94f34d7fe, type: 3}
   m_Name: Axed
   m_EditorClassIdentifier: 
-  name: Axed
-  detail: 
+  fateName: Axed
+  detail: garbage
   sentence: ' was axed by [killer].'
   hasDetails: 0
   requiresAttacker: 1

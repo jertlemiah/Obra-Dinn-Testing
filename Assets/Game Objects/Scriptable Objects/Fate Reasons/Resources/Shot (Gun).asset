@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de2c370093fbcb4eb5fced94f34d7fe, type: 3}
   m_Name: Shot (Gun)
   m_EditorClassIdentifier: 
-  name: Shot
+  fateName: Shot
   detail: Gun
   sentence: ' was shot with [details] \nby [killer].'
   hasDetails: 1

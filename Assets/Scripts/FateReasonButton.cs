@@ -11,24 +11,33 @@ public class FateReasonButton : ButtonController
     public FateReason fateReason;
     [SerializeField]
     public GameObject detailsArrow;
-    //public bool
+    [SerializeField]
+    public bool hasDetails = false;
+    [SerializeField]
+    public List<FateReason> detailsList = new List<FateReason>();
 
-    public void updateFateReason(FateReason fr)
+    public void UpdateFateReason(FateReason fr)
     {
         fateReason = fr;
-        updateButtonDisplay();
+        detailsList.Clear();
+        UpdateButtonDisplay();
     }
 
-    public void setButtonInactive()
+    public void AddNewDetail(FateReason fr)
+    {
+        detailsList.Add(fr);
+    }
+
+    public void SetButtonInactive()
     {
         this.GetComponent<Button>().enabled = false;
         this.tmpText.text = "";
     }
 
-    public void updateButtonDisplay()
+    public void UpdateButtonDisplay()
     {
         this.GetComponent<Button>().enabled = true;
-        this.tmpText.text = fateReason.name;
+        this.tmpText.text = fateReason.fateName;
         if (fateReason.hasDetails)
         {
             detailsArrow.SetActive(true);

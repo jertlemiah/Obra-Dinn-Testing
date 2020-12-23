@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de2c370093fbcb4eb5fced94f34d7fe, type: 3}
   m_Name: Suicide (Gun)
   m_EditorClassIdentifier: 
-  name: Suicide
+  fateName: Suicide
   detail: Gun
   sentence: ' comitted suicide ([details]).'
   hasDetails: 1

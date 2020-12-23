@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable, CreateAssetMenu]
 public class FateReason : ScriptableObject
 {
-    public string name,
-        detail,
-        sentence;
+    public string fateName = "garbage",
+        detail = "garbage",
+        sentence = "garbage";
     public bool hasDetails = false, 
         requiresAttacker = false;
 }

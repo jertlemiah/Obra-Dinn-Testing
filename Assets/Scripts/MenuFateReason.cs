@@ -19,8 +19,11 @@ public class MenuFateReason : MonoBehaviour
         panel_FateReasonMenu,
         btnGrp_Reasons,
         btn_pageRight, btn_pageLeft,
-        lbl_PageNumber,
+        //lbl_PageNumber,
         btnGrp_Details, lbl_DetailsName;
+    public TMP_Text tmpText_PageNum;
+
+    public bool isDetailsOpen = false;
 
     [SerializeField]
     public int panelDefaultHeight = 604,
@@ -32,7 +35,7 @@ public class MenuFateReason : MonoBehaviour
         btnObjList_Details = new List<GameObject>();
 
     public int currentPage = 1,
-        pageCount = 1;
+        pageCount = -1;
     public string fatesDestinationFolder = "Assets/Game Objects/Scriptable Objects/Fate Reasons/Resources";
     
     // Start is called before the first frame update
@@ -47,34 +50,41 @@ public class MenuFateReason : MonoBehaviour
         //ReadFateReasonsFile();
         LoadCreatedFateReasons();
         pageCount = (int)Mathf.Ceil(fateReasonsList.Count / btnObjList_Reasons.Count);
-        SwitchFatePopup(false);
+        //SwitchFatePopup(false);
         ChangePage(0);
     }
 
     public void ChangePage(int pagesTurned)
     {
-        // Get the new page number, clamped from 1 to max page count
-        currentPage = Mathf.Clamp(currentPage + pagesTurned, 1, pageCount);
+        //pageCount = (int)Mathf.Ceil(fateReasonsList.Count / btnObjList_Reasons.Count);
+        Debug.Log("ChangePage called, on page number: " + currentPage + 
+            " turning " + pagesTurned + " pages, max page count: " + pageCount);
+        Debug.Log(pageCount);
+        //currentPage += pagesTurned;
+        
+        //// Get the new page number, clamped from 1 to max page count
+        //currentPage = Mathf.Clamp(currentPage, 1, pageCount);
 
-        // Populate the buttons with info
-        PopulateButtons(btnObjList_Reasons, fateReasonsList, false);
+        //// Populate the buttons with info
+        //PopulateButtons(btnObjList_Reasons, fateReasonsList, false);
 
-        // If first page, turn off left turn page button
-        if(currentPage == 1) {
-            btn_pageLeft.SetActive(false);
-        }
-        else {
-            btn_pageLeft.SetActive(true);
-        }      
-        // If last page, turn off right turn off button
-        if (currentPage == pageCount) {
-            btn_pageRight.SetActive(false);
-        }
-        else {
-            btn_pageRight.SetActive(true);
-        }
+        //// If first page, turn off left turn page button
+        //if(currentPage == 1) {
+        //    btn_pageLeft.SetActive(false);
+        //}
+        //else {
+        //    btn_pageLeft.SetActive(true);
+        //}      
+        //// If last page, turn off right turn off button
+        //if (currentPage == pageCount) {
+        //    btn_pageRight.SetActive(false);
+        //}
+        //else {
+        //    btn_pageRight.SetActive(true);
+        //}
         // Update the page number display
-        lbl_PageNumber.GetComponent<TMP_Text>().text = currentPage + " / " + pageCount;
+        //lbl_PageNumber.GetComponent<TMP_Text>().text = currentPage + " / " + pageCount;
+        //tmpText_PageNum.text = currentPage + " / " + pageCount;
     }
 
     private void GetButtonObjects(GameObject btnGrpObj, List<GameObject> btnObjList)
@@ -98,6 +108,13 @@ public class MenuFateReason : MonoBehaviour
     {
         //pageCount = (int)Mathf.Ceil(sourceList.Count / btnObjList.Count);
         //pageCount = (int)Mathf.Ceil(fateReasons.Length / buttons.Count);
+        //FateReason previousFate = new FateReason(),
+        //    currentFate = new FateReason();
+
+        FateReason currentFate = ScriptableObject.CreateInstance<FateReason>(),
+            previousFate = ScriptableObject.CreateInstance<FateReason>();
+
+
         int i = 0, numActive = 0;
         foreach (GameObject buttonObj in btnObjList)
         {
@@ -113,25 +130,78 @@ public class MenuFateReason : MonoBehaviour
                     buttonObj.SetActive(false);
                 else
                 {
-                    buttonScript.setButtonInactive();
+                    buttonScript.SetButtonInactive();
                     buttonScript.enabled = false;
                 }
+                i++;
             }
             // Else, populate button with correct information
             else
             {
+                buttonObj.SetActive(true);
+                buttonScript.enabled = true;
                 numActive++;
-                if (autoSize == true)
+                bool again = false;
+                
+                do
                 {
-                    buttonObj.SetActive(true);
-                }
-                else
-                {
-                    buttonScript.enabled = true;
-                    buttonScript.updateFateReason(sourceList[i + (currentPage - 1) * btnObjList.Count]);
-                } 
+                    // If there are no more fates to read OR
+
+                    if (i + (currentPage - 1) * btnObjList.Count >= sourceList.Count){
+                        break;
+                    }
+                    currentFate = sourceList[i + (currentPage - 1) * btnObjList.Count];
+
+                    // if this is a retry, and the previous has a different name than the current
+                    // then this should be a new button, not compressed into current button
+                    if (again == true && previousFate.fateName != currentFate.fateName)
+                    {
+                        break;
+                    }
+
+                    // If there are details, need to compress them into a single button
+                    if (isDetailsOpen == false && currentFate.hasDetails == true)
+                    {
+                        // if first time, repopulate the main fate of the button
+                        if(previousFate.fateName != currentFate.fateName)
+                        {
+                            buttonScript.UpdateFateReason(currentFate);
+                            buttonScript.AddNewDetail(currentFate);
+                        }
+                        //else add to that button list of details
+                        else if(previousFate.fateName == currentFate.fateName)
+                        {
+                            buttonScript.AddNewDetail(currentFate);
+                        }
+                        again = true;
+                    }
+                    else
+                    {
+                        buttonScript.UpdateFateReason(currentFate);
+                        again = false;
+                    }
+                    i++;
+                    previousFate = currentFate;
+                } while (again);
+                
+                
+
+                
+
+                //if (autoSize == true)
+                //{
+                //    buttonObj.SetActive(true);
+                //}
+                //else
+                //{
+                //    buttonScript.enabled = true;
+                //    buttonScript.UpdateFateReason(sourceList[i + (currentPage - 1) * btnObjList.Count]);
+                //}
+                
+
             }
-            i++;
+            
+            
         }
         if(autoSize == true)
         {
@@ -160,9 +230,10 @@ public class MenuFateReason : MonoBehaviour
 
     public void SwitchFatePopup()
     {
-        if(block_FateReaons.activeInHierarchy == true)
+        if(isDetailsOpen == true)
         {
             SwitchFatePopup(false);
+
         }
         else
         {
@@ -177,6 +248,7 @@ public class MenuFateReason : MonoBehaviour
         {
             block_FateReaons.SetActive(true);
             block_FateDetails.SetActive(false);
+            isDetailsOpen = false;
             // Populate the buttons with info
             PopulateButtons(btnObjList_Reasons, fateReasonsList, false);
         }
@@ -185,8 +257,9 @@ public class MenuFateReason : MonoBehaviour
         {
             block_FateReaons.SetActive(false);
             block_FateDetails.SetActive(true);
+            isDetailsOpen = true;
             // Populate the buttons with info
-            PopulateButtons(btnObjList_Details, fateReasonsList, false);
+            //PopulateButtons(btnObjList_Details, fateDetailsList, true);
         }
     }
 
@@ -218,7 +291,7 @@ public class MenuFateReason : MonoBehaviour
                 {
                     //Debug.Log(" option: " + detail);
                     FateReason newReason = ScriptableObject.CreateInstance<FateReason>();
-                    newReason.name = reasonJson.name;
+                    newReason.fateName = reasonJson.name;
                     newReason.sentence = reasonJson.sentence;
                     newReason.hasDetails = reasonJson.hasDetails;
                     newReason.requiresAttacker = reasonJson.requiresAttacker;
@@ -229,7 +302,7 @@ public class MenuFateReason : MonoBehaviour
             else
             {
                 FateReason newReason = ScriptableObject.CreateInstance<FateReason>();
-                newReason.name = reasonJson.name;
+                newReason.fateName = reasonJson.name;
                 newReason.sentence = reasonJson.sentence;
                 newReason.hasDetails = reasonJson.hasDetails;
                 newReason.requiresAttacker = reasonJson.requiresAttacker;
@@ -244,11 +317,11 @@ public class MenuFateReason : MonoBehaviour
             string assetName = "";
             if (reason.hasDetails)
             {
-                assetName = reason.name + " (" + reason.detail + ").asset";
+                assetName = reason.fateName + " (" + reason.detail + ").asset";
             }
             else
             {
-                assetName = reason.name + ".asset";
+                assetName = reason.fateName + ".asset";
             }
             Debug.Log("Creating FateReason asset '" + assetName + "' in " + fatesDestinationFolder);
             if(File.Exists(fatesDestinationFolder + "/" + assetName) == true)

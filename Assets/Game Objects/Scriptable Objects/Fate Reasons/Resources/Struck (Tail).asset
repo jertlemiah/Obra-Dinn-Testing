@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de2c370093fbcb4eb5fced94f34d7fe, type: 3}
   m_Name: Struck (Tail)
   m_EditorClassIdentifier: 
-  name: Struck
+  fateName: Struck
   detail: Tail
   sentence: ' was struck dead \nby a beast''s [details].'
   hasDetails: 1
