@@ -34,13 +34,15 @@ public class MenuFateReason : MonoBehaviour
     public List<GameObject> btnObjList_Reasons = new List<GameObject>(),
         btnObjList_Details = new List<GameObject>();
 
-    public int currentPage = 1,
-        pageCount = -1;
+    public int currentPage = 1;
+    [SerializeField]
+    public int pageCount = 4;
     public string fatesDestinationFolder = "Assets/Game Objects/Scriptable Objects/Fate Reasons/Resources";
     
     // Start is called before the first frame update
     void Start()
     {
+        
         GetButtonObjects(btnGrp_Reasons, btnObjList_Reasons);
         Debug.Log("Count in buttons List " + btnObjList_Reasons.Count);
         
@@ -49,42 +51,50 @@ public class MenuFateReason : MonoBehaviour
 
         //ReadFateReasonsFile();
         LoadCreatedFateReasons();
-        pageCount = (int)Mathf.Ceil(fateReasonsList.Count / btnObjList_Reasons.Count);
+        currentPage = 1;
+        //pageCount = (int)Mathf.Ceil(fateReasonsList.Count / btnObjList_Reasons.Count);
         //SwitchFatePopup(false);
+        ChangePage(0);
         ChangePage(0);
     }
 
     public void ChangePage(int pagesTurned)
     {
-        //pageCount = (int)Mathf.Ceil(fateReasonsList.Count / btnObjList_Reasons.Count);
+        //Debug.Log("btnObjList_Reasons.Count: " + btnObjList_Reasons.Count);
+        //Debug.Log("fateReasonsList.Count: " + fateReasonsList.Count);
+        pageCount = (int)Mathf.Ceil(fateReasonsList.Count / btnObjList_Reasons.Count);
         Debug.Log("ChangePage called, on page number: " + currentPage + 
-            " turning " + pagesTurned + " pages, max page count: " + pageCount);
-        Debug.Log(pageCount);
-        //currentPage += pagesTurned;
-        
-        //// Get the new page number, clamped from 1 to max page count
-        //currentPage = Mathf.Clamp(currentPage, 1, pageCount);
+            " turning " + pagesTurned + " pages");
+        //Debug.Log(pageCount);
+        currentPage += pagesTurned;
 
-        //// Populate the buttons with info
-        //PopulateButtons(btnObjList_Reasons, fateReasonsList, false);
+        // Get the new page number, clamped from 1 to max page count
+        currentPage = Mathf.Clamp(currentPage, 1, pageCount);
 
-        //// If first page, turn off left turn page button
-        //if(currentPage == 1) {
-        //    btn_pageLeft.SetActive(false);
-        //}
-        //else {
-        //    btn_pageLeft.SetActive(true);
-        //}      
-        //// If last page, turn off right turn off button
-        //if (currentPage == pageCount) {
-        //    btn_pageRight.SetActive(false);
-        //}
-        //else {
-        //    btn_pageRight.SetActive(true);
-        //}
-        // Update the page number display
+        // Populate the buttons with info
+        PopulateButtons(btnObjList_Reasons, fateReasonsList, false);
+
+        // If first page, turn off left turn page button
+        if (currentPage == 1)
+        {
+            btn_pageLeft.SetActive(false);
+        }
+        else
+        {
+            btn_pageLeft.SetActive(true);
+        }
+        // If last page, turn off right turn off button
+        if (currentPage == pageCount)
+        {
+            btn_pageRight.SetActive(false);
+        }
+        else
+        {
+            btn_pageRight.SetActive(true);
+        }
+        //Update the page number display
         //lbl_PageNumber.GetComponent<TMP_Text>().text = currentPage + " / " + pageCount;
-        //tmpText_PageNum.text = currentPage + " / " + pageCount;
+        tmpText_PageNum.text = currentPage + " / " + pageCount;
     }
 
     private void GetButtonObjects(GameObject btnGrpObj, List<GameObject> btnObjList)
@@ -259,7 +269,7 @@ public class MenuFateReason : MonoBehaviour
             block_FateDetails.SetActive(true);
             isDetailsOpen = true;
             // Populate the buttons with info
-            //PopulateButtons(btnObjList_Details, fateDetailsList, true);
+            PopulateButtons(btnObjList_Details, fateReasonsList, true);
         }
     }
 

@@ -16,6 +16,16 @@ public class FateReasonButton : ButtonController
     [SerializeField]
     public List<FateReason> detailsList = new List<FateReason>();
 
+    public void FateButtonPressed()
+    {
+        Debug.Log("FateButton has been pressed");
+        if(hasDetails==false || )
+        {
+
+        }
+
+    }
+
     public void UpdateFateReason(FateReason fr)
     {
         fateReason = fr;

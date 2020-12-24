@@ -18,8 +18,8 @@ MonoBehaviour:
   hasAttacker: 1
   currentName: Unknown
   correctName: Charles Hershtik
-  currentAttacker: Unknown
-  currentReason: {fileID: 11400000, guid: 998fcd1b6a25bee4e89289b04d3eeb9e, type: 2}
+  currentAttacker: Bob
+  currentReason: {fileID: 11400000, guid: 0d5875b586efe7047aa3165f6e138b3f, type: 2}
   acceptableFates:
   - reason: {fileID: 11400000, guid: 662afab0b8dcf24409486e457beef653, type: 2}
     attacker: 
