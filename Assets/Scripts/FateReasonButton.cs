@@ -16,12 +16,27 @@ public class FateReasonButton : ButtonController
     [SerializeField]
     public List<FateReason> detailsList = new List<FateReason>();
 
+    private MenuFateReason menuFateReason;
+
+    private void Start()
+    {
+        menuFateReason = MenuFateReason.Instance;
+    }
+
     public void FateButtonPressed()
     {
         Debug.Log("FateButton has been pressed");
-        if(hasDetails==false || )
+        if(hasDetails==false || 
+            (hasDetails == false && menuFateReason.isDetailsOpen == true))
         {
-
+            // Set reason for this page
+            // if details is open switch back to just reason page
+            // close fate reason menu
+        }
+        else if (hasDetails == true && menuFateReason.isDetailsOpen == false)
+        {
+            // Switch to details menu for the specified button
+            menuFateReason.
         }
 
     }

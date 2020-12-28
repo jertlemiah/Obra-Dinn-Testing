@@ -9,7 +9,7 @@ using UnityEditor;
 using System.Linq;
 using UnityEngine.UI;
 
-public class MenuFateReason : MonoBehaviour
+public class MenuFateReason : Singleton<MenuFateReason>
 {
     public string fateReasonsJsonFileName = "Assets/Scripts/FateReasons.txt";
     public List<FateReason> fateReasonsList = new List<FateReason>(),
