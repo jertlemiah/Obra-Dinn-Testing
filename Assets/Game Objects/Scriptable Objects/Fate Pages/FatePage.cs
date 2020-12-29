@@ -9,7 +9,8 @@ public class FatePage : ScriptableObject
 
     public bool correctFate = false,
         confirmedFate = false,
-        hasAttacker = false;
+        hasAttacker = false,
+        usesMasculine = true;
 
     public string currentName = "Unknown",
         correctName,
@@ -22,7 +23,33 @@ public class FatePage : ScriptableObject
     [SerializeField]
     public AcceptableFate[] acceptableFates;
 
+    [SerializeField]
+    public string fateSentence;
+
     public Sprite portrait;
+
+    public string UpdateFateSentence()
+    {
+        Debug.Log("Updating the fateSentence of fatePage ID " + internalID);
+        fateSentence = currentReason.rawSentence;
+        //Debug.Log("Raw: " + fateSentence);
+
+        fateSentence = fateSentence.Replace("[details]", currentReason.detail);
+        //Debug.Log("After details: " + fateSentence);
+
+        if (usesMasculine)
+            fateSentence = fateSentence.Replace("[pronoun]", "his");
+        else
+            fateSentence = fateSentence.Replace("[pronoun]", "her");
+        //Debug.Log("After pronouns: " + fateSentence);
+
+        fateSentence = fateSentence.Replace("\\n", "\n");
+        //Debug.Log("After newline: " + fateSentence);
+
+        hasAttacker = currentReason.requiresAttacker;
+
+        return fateSentence;
+    }
 
     public bool ValidateFate()
     {

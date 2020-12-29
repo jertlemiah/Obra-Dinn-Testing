@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fateName: Expired
   detail: garbage
-  sentence: ' expired from old age.'
+  rawSentence: ' expired from old age.'
   hasDetails: 0
   requiresAttacker: 0

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fateName: Suicide
   detail: Knife
-  sentence: ' comitted suicide ([details]).'
+  rawSentence: ' comitted suicide ([details]).'
   hasDetails: 1
   requiresAttacker: 0

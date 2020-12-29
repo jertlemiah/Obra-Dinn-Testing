@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fateName: Spiked
   detail: garbage
-  sentence: ' was spiked by a terrible beast.'
+  rawSentence: ' was spiked by a terrible beast.'
   hasDetails: 0
   requiresAttacker: 0

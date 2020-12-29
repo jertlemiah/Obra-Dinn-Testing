@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fateName: Alive
   detail: West Indies
-  sentence: ' is alive in [details].'
+  rawSentence: ' is alive in [details].'
   hasDetails: 1
   requiresAttacker: 0

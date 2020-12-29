@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fateName: Unknown
   detail: garbage
-  sentence: ' met an unknown fate.'
+  rawSentence: ' met an unknown fate.'
   hasDetails: 0
   requiresAttacker: 0

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fateName: Speared
   detail: garbage
-  sentence: ' was speared \nby [killer].'
+  rawSentence: ' was speared'
   hasDetails: 0
   requiresAttacker: 1

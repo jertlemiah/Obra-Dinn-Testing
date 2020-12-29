@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fateName: Struck
   detail: Tail
-  sentence: ' was struck dead \nby a beast''s [details].'
+  rawSentence: ' was struck dead \nby a beast''s [details].'
   hasDetails: 1
   requiresAttacker: 0

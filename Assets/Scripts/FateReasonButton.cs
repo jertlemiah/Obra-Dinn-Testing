@@ -12,15 +12,20 @@ public class FateReasonButton : ButtonController
     [SerializeField]
     public GameObject detailsArrow;
     [SerializeField]
-    public bool hasDetails = false;
+    public bool hasDetails = false,
+        showDetails = false;
     [SerializeField]
     public List<FateReason> detailsList = new List<FateReason>();
 
     private MenuFateReason menuFateReason;
+    private MenuManager menuManager;
+    private MenuFate menuFate;
 
     private void Start()
     {
-        menuFateReason = MenuFateReason.Instance;
+        menuManager = MenuManager.Instance;
+        menuFateReason = menuManager.menuFateReason;
+        menuFate = menuManager.menuFate;
     }
 
     public void FateButtonPressed()
@@ -29,14 +34,19 @@ public class FateReasonButton : ButtonController
         if(hasDetails==false || 
             (hasDetails == false && menuFateReason.isDetailsOpen == true))
         {
+            //Debug.Log("if 1");
             // Set reason for this page
+            menuFate.SelectNewFate(this.fateReason);
             // if details is open switch back to just reason page
+            menuFateReason.SwitchFatePopup(false);
             // close fate reason menu
+            menuFate.UI_FateReasonPopup.SetActive(false); ;
         }
         else if (hasDetails == true && menuFateReason.isDetailsOpen == false)
         {
+            //Debug.Log("else if 2");
             // Switch to details menu for the specified button
-            menuFateReason.
+            menuFateReason.LoadFateDetailPopup(this);
         }
 
     }
@@ -62,15 +72,25 @@ public class FateReasonButton : ButtonController
     public void UpdateButtonDisplay()
     {
         this.GetComponent<Button>().enabled = true;
-        this.tmpText.text = fateReason.fateName;
-        if (fateReason.hasDetails)
+        if(showDetails == true)
         {
-            detailsArrow.SetActive(true);
+            this.tmpText.text = fateReason.detail;
+            detailsArrow.SetActive(false);
         }
         else
         {
-            detailsArrow.SetActive(false);
+            this.tmpText.text = fateReason.fateName;
+            if (fateReason.hasDetails)
+            {
+                detailsArrow.SetActive(true);
+            }
+            else
+            {
+                detailsArrow.SetActive(false);
+            }
         }
+        
+
 
     }
     //[SerializeField]

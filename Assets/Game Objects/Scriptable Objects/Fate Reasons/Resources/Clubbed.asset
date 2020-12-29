@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fateName: Clubbed
   detail: garbage
-  sentence: ' was clubbed \nby [killer].'
+  rawSentence: ' was clubbed'
   hasDetails: 0
   requiresAttacker: 1

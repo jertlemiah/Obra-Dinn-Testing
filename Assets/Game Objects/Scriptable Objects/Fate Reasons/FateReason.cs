@@ -7,7 +7,7 @@ public class FateReason : ScriptableObject
 {
     public string fateName = "garbage",
         detail = "garbage",
-        sentence = "garbage";
+        rawSentence = "garbage";
     public bool hasDetails = false, 
         requiresAttacker = false;
 }

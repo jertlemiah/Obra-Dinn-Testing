@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fateName: Illness
   detail: garbage
-  sentence: ' succumbed to a tragic illnesss.'
+  rawSentence: ' succumbed to a tragic illnesss.'
   hasDetails: 0
   requiresAttacker: 0

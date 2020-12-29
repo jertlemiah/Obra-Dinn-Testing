@@ -16,7 +16,7 @@
         "name": "Axed",
         "hasdetails": 0,
         "requiresAttacker": 1,
-        "sentence": " was axed by [killer]."
+        "sentence": " was axed"
     },
     {
         "name": "Burned",
@@ -34,7 +34,7 @@
         "name": "Clubbed",
         "hasdetails": 0,
         "requiresAttacker": 1,
-        "sentence": " was clubbed \\nby [killer]."
+        "sentence": " was clubbed"
     },
     {
         "name": "Crushed",
@@ -47,19 +47,19 @@
         "name": "Decapitated",
         "hasdetails": 0,
         "requiresAttacker": 1,
-        "sentence": " was decapitated \\nby [killer]."
+        "sentence": " was decapitated"
     },
     {
         "name": "Drowned",
         "hasdetails": 0,
         "requiresAttacker": 1,
-        "sentence": " was drowned \\nby [killer]."
+        "sentence": " was drowned"
     },
     {
         "name": "Eaten",
         "hasdetails": 0,
         "requiresAttacker": 1,
-        "sentence": " was eaten \\nby [killer]."
+        "sentence": " was eaten"
     },
     {
         "name": "Electrocuted",
@@ -95,13 +95,13 @@
         "name": "Killed (sword)",
         "hasdetails": 0,
         "requiresAttacker": 1,
-        "sentence": " was killed with a sword \\nby [killer]."
+        "sentence": " was killed with a sword"
     },
     {
         "name": "Knifed",
         "hasdetails": 0,
         "requiresAttacker": 1,
-        "sentence": " was killed with a knife \\nby [killer]."
+        "sentence": " was killed with a knife"
     },
     {
         "name": "Poisoned",
@@ -114,13 +114,13 @@
         "hasdetails": 1,
         "details": ["Arrow", "Cannon", "Gun"],
         "requiresAttacker": 1,
-        "sentence": " was shot with [details] \\nby [killer]."
+        "sentence": " was shot with [details]"
     },
     {
         "name": "Speared",
         "hasdetails": 0,
         "requiresAttacker": 1,
-        "sentence": " was speared \\nby [killer]."
+        "sentence": " was speared"
     },
     {
         "name": "Spiked",
@@ -132,7 +132,7 @@
         "name": "Strangled",
         "hasdetails": 0,
         "requiresAttacker": 1,
-        "sentence": " was strangled by [killer]."
+        "sentence": " was strangled"
     },
     {
         "name": "Struck",

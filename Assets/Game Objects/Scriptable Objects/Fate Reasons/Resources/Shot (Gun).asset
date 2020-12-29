@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fateName: Shot
   detail: Gun
-  sentence: ' was shot with [details] \nby [killer].'
+  rawSentence: ' was shot with [details]'
   hasDetails: 1
   requiresAttacker: 1

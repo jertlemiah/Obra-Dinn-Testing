@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuManager : MonoBehaviour
+public class MenuManager : Singleton<MenuManager>
 {
     private InputManager inputManager;
-    public GameObject UI_FatePopup;
-    public GameObject UI_FateReasonPopup;
-    public GameObject UI_BookPopup;
+    public GameObject obj_Book,
+        obj_FatePageMenu,
+        obj_FateReasonMenu;
+    public MenuFateReason menuFateReason;
+    public MenuFate menuFate;
+    public MenuBook menuBook;
     private bool IsBookOpen = false;
     private bool IsFateOpen = false;
     private bool IsFateReasonOpen = false;
@@ -15,8 +18,14 @@ public class MenuManager : MonoBehaviour
     void Awake()
     {
         inputManager = InputManager.Instance;
+
+        menuFateReason = obj_FateReasonMenu.GetComponent<MenuFateReason>();
+        menuFate = obj_FatePageMenu.GetComponent<MenuFate>();
+        menuBook = obj_Book.GetComponent<MenuBook>();
+
         // Every time the OpenBook action is performed, run the OpenBook function here
         inputManager.GetInputActions().Player.ToggleBook.performed += context => ToggleBook();
+        inputManager.GetInputActions().Player.Back.performed += context => NavBackOnce();
     }
 
     void ToggleBook()
@@ -25,16 +34,53 @@ public class MenuManager : MonoBehaviour
         else        OpenBook();
     }
 
+    void NavBackOnce()
+    {
+        /*if FateReason Menu is active && details are open
+         *      nav back to fate reason*/
+        if (obj_FateReasonMenu.activeInHierarchy && menuFateReason.isDetailsOpen == true)
+        {
+            menuFateReason.SwitchFatePopup(false);
+        }
+        /* else if FateReason Menu is active &&  fate reason is open
+         *      nav back to fate page */
+        else if (obj_FateReasonMenu.activeInHierarchy && menuFateReason.isDetailsOpen == false)
+        {
+            menuFate.ToggleFateReasonPopup();
+        }
+        /* else if fate page is open
+         *      nav back to book */
+        else if (obj_FatePageMenu.activeInHierarchy)
+        {
+            ToggleFatePopup();
+        }
+        else
+        {
+            Debug.Log("Nav back one page?");
+        }
+
+        /*if details are open
+         *      nav back to fate reason
+         * else if fate reason is open
+         *      nav back to fate page
+         * else if fate page is open
+         *      nav back to book
+         * else if book is open
+         *      nav back to previous page (?)
+         */
+
+    }
+
     void OpenBook()
     {
-        UI_BookPopup.SetActive(true);
+        obj_Book.SetActive(true);
         IsBookOpen = true;
         Cursor.visible = true;
     }
 
     void CloseBook()
     {
-        UI_BookPopup.SetActive(false);
+        obj_Book.SetActive(false);
         IsBookOpen = false;
         Cursor.visible = false;
     }
@@ -44,12 +90,12 @@ public class MenuManager : MonoBehaviour
     {
         if (IsFateOpen)
         {
-            UI_FatePopup.SetActive(false);
+            obj_FatePageMenu.SetActive(false);
             IsFateOpen = false;
         }
         else
         {
-            UI_FatePopup.SetActive(true);
+            obj_FatePageMenu.SetActive(true);
             IsFateOpen = true;
         }
     }
@@ -59,12 +105,12 @@ public class MenuManager : MonoBehaviour
     {
         if (IsFateReasonOpen)
         {
-            UI_FateReasonPopup.SetActive(false);
+            obj_FateReasonMenu.SetActive(false);
             IsFateReasonOpen = false;
         }
         else
         {
-            UI_FateReasonPopup.SetActive(true);
+            obj_FateReasonMenu.SetActive(true);
             IsFateReasonOpen = true;
         }
     }

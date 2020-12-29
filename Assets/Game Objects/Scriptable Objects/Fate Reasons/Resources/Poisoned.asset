@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fateName: Poisoned
   detail: garbage
-  sentence: ' was poisoned.'
+  rawSentence: ' was poisoned.'
   hasDetails: 0
   requiresAttacker: 0

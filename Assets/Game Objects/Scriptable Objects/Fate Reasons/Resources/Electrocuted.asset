@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fateName: Electrocuted
   detail: garbage
-  sentence: ' was electrocuted.'
+  rawSentence: ' was electrocuted.'
   hasDetails: 0
   requiresAttacker: 0

@@ -20,8 +20,9 @@ public class MenuFateReason : Singleton<MenuFateReason>
         btnGrp_Reasons,
         btn_pageRight, btn_pageLeft,
         //lbl_PageNumber,
-        btnGrp_Details, lbl_DetailsName;
-    public TMP_Text tmpText_PageNum;
+        btnGrp_Details;//, lbl_DetailsName;
+    public TMP_Text tmpText_PageNum,
+        tmpText_FateName;
 
     public bool isDetailsOpen = false;
 
@@ -177,6 +178,7 @@ public class MenuFateReason : Singleton<MenuFateReason>
                         {
                             buttonScript.UpdateFateReason(currentFate);
                             buttonScript.AddNewDetail(currentFate);
+                            buttonScript.hasDetails = true;
                         }
                         //else add to that button list of details
                         else if(previousFate.fateName == currentFate.fateName)
@@ -225,6 +227,45 @@ public class MenuFateReason : Singleton<MenuFateReason>
         }
     }
 
+    private void PopulateDetailButtons(List<GameObject> btnObjList, List<FateReason> sourceList)
+    {
+        //pageCount = (int)Mathf.Ceil(sourceList.Count / btnObjList.Count);
+        //pageCount = (int)Mathf.Ceil(fateReasons.Length / buttons.Count);
+        //FateReason previousFate = new FateReason(),
+        //    currentFate = new FateReason();
+
+        FateReason currentFate = ScriptableObject.CreateInstance<FateReason>();
+
+
+        int i = 0, numActive = 0;
+        foreach (GameObject buttonObj in btnObjList)
+        {
+            //TMP_Text btnTMPobj = buttonObj.GetComponentInChildren<TMP_Text>();
+            //btnTMPobj.text = fateReasons[i + (currentPage-1)*buttons.Count].name;
+
+            FateReasonButton buttonScript = buttonObj.GetComponent<FateReasonButton>();
+
+            // If there is no further information to populate list with, turn off button
+            if ((i + (currentPage - 1) * btnObjList.Count) >= sourceList.Count)
+            {
+                buttonObj.SetActive(false);
+            }
+            // Else, populate button with correct information
+            else
+            {
+                buttonObj.SetActive(true);
+                buttonScript.enabled = true;
+                buttonScript.showDetails = true;
+                numActive++;
+
+                currentFate = sourceList[i + (currentPage - 1) * btnObjList.Count];
+                buttonScript.UpdateFateReason(currentFate);
+            }
+            i++;
+        }
+        UpdateMenuHeight(numActive);
+    }
+
     private void UpdateMenuHeight(int numberBtnsActive)
     {
         //panel_Outermost
@@ -251,6 +292,20 @@ public class MenuFateReason : Singleton<MenuFateReason>
         }
     }
 
+    public void LoadFateDetailPopup (FateReasonButton buttonInfo)
+    {
+        fateDetailsList.Clear();
+        fateDetailsList = buttonInfo.detailsList;
+
+        block_FateReaons.SetActive(false);
+        block_FateDetails.SetActive(true);
+        isDetailsOpen = true;
+        tmpText_FateName.text = buttonInfo.fateReason.fateName;
+
+        // Populate the buttons with info
+        PopulateDetailButtons(btnObjList_Details, fateDetailsList);
+    }
+
     public void SwitchFatePopup(bool changeToDetails)
     {
         // This is the Fate Reasons page, which should be the default
@@ -269,7 +324,7 @@ public class MenuFateReason : Singleton<MenuFateReason>
             block_FateDetails.SetActive(true);
             isDetailsOpen = true;
             // Populate the buttons with info
-            PopulateButtons(btnObjList_Details, fateReasonsList, true);
+            PopulateButtons(btnObjList_Details, fateDetailsList, true);
         }
     }
 
@@ -302,7 +357,7 @@ public class MenuFateReason : Singleton<MenuFateReason>
                     //Debug.Log(" option: " + detail);
                     FateReason newReason = ScriptableObject.CreateInstance<FateReason>();
                     newReason.fateName = reasonJson.name;
-                    newReason.sentence = reasonJson.sentence;
+                    newReason.rawSentence = reasonJson.sentence;
                     newReason.hasDetails = reasonJson.hasDetails;
                     newReason.requiresAttacker = reasonJson.requiresAttacker;
                     newReason.detail = detail;
@@ -313,7 +368,7 @@ public class MenuFateReason : Singleton<MenuFateReason>
             {
                 FateReason newReason = ScriptableObject.CreateInstance<FateReason>();
                 newReason.fateName = reasonJson.name;
-                newReason.sentence = reasonJson.sentence;
+                newReason.rawSentence = reasonJson.sentence;
                 newReason.hasDetails = reasonJson.hasDetails;
                 newReason.requiresAttacker = reasonJson.requiresAttacker;
                 fateReasonsList.Add(newReason);

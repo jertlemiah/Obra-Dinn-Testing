@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fateName: Fell
   detail: garbage
-  sentence: ' fell to [pronoun] death.'
+  rawSentence: ' fell to [pronoun] death.'
   hasDetails: 0
   requiresAttacker: 0

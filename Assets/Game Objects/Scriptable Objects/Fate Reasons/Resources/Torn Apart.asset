@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fateName: Torn Apart
   detail: garbage
-  sentence: ' was torn apart \nby a terrible beast.'
+  rawSentence: ' was torn apart \nby a terrible beast.'
   hasDetails: 0
   requiresAttacker: 0

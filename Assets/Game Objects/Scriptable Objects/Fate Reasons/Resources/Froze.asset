@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fateName: Froze
   detail: garbage
-  sentence: ' froze to death.'
+  rawSentence: ' froze to death.'
   hasDetails: 0
   requiresAttacker: 0

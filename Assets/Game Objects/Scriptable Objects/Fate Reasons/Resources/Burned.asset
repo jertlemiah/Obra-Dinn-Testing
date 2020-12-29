@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fateName: Burned
   detail: garbage
-  sentence: ' burned to death.'
+  rawSentence: ' burned to death.'
   hasDetails: 0
   requiresAttacker: 0

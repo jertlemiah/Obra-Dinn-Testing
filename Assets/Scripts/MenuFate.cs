@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class MenuFate : MonoBehaviour
 {
     public GameObject UI_FateReasonPopup,
-        portraitObj;
+        portraitObj,
+        btn_Name, btn_FateReason, btn_Attacker;
     public TMP_Text name_TMPtext, fateReason_TMPtext, attacker_TMPtext;
     public FatePage currentFatePage;
 
@@ -19,17 +20,28 @@ public class MenuFate : MonoBehaviour
     public void SelectNewFate(FateReason fateReason)
     {
         currentFatePage.currentReason = fateReason;
+        currentFatePage.UpdateFateSentence();
         ToggleFateReasonPopup();
+    }
+
+    public void UpdatedSelectedFate(FatePage newFateDetails)
+    {
+        currentFatePage.currentName = newFateDetails.currentName;
     }
 
     public void ToggleFateReasonPopup()
     {
         if (UI_FateReasonPopup.activeSelf == true) {
             UI_FateReasonPopup.SetActive(false);
+            PopulatePage();
         }
         else {
             UI_FateReasonPopup.SetActive(true);
         }
+    }
+    private void OnEnable()
+    {
+        PopulatePage();
     }
 
     public void PopulatePage()
@@ -43,14 +55,15 @@ public class MenuFate : MonoBehaviour
             name_TMPtext.text = currentFatePage.currentName;
         }
         
-        fateReason_TMPtext.text = currentFatePage.currentReason.sentence;
+        fateReason_TMPtext.text = currentFatePage.UpdateFateSentence();
         if(currentFatePage.hasAttacker == true)
         {
-            attacker_TMPtext.text = currentFatePage.currentAttacker;
+            btn_Attacker.SetActive(true);
+            attacker_TMPtext.text = "by " + currentFatePage.currentAttacker;
         }
         else
         {
-            attacker_TMPtext.text = "";
+            btn_Attacker.SetActive(false);
         }
 
         portraitObj.GetComponent<Image>().sprite = currentFatePage.portrait;
@@ -62,7 +75,7 @@ public class MenuFate : MonoBehaviour
         UI_FateReasonPopup.SetActive(true);
 
         name_TMPtext.text = currentFatePage.currentName;
-        fateReason_TMPtext.text = currentFatePage.currentReason.sentence;
+        fateReason_TMPtext.text = currentFatePage.currentReason.rawSentence;
         attacker_TMPtext.text = currentFatePage.currentAttacker;
     }
 

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fateName: Drowned
   detail: garbage
-  sentence: ' was drowned \nby [killer].'
+  rawSentence: ' was drowned'
   hasDetails: 0
   requiresAttacker: 1

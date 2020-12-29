@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fateName: Axed
   detail: garbage
-  sentence: ' was axed by [killer].'
+  rawSentence: ' was axed'
   hasDetails: 0
   requiresAttacker: 1
