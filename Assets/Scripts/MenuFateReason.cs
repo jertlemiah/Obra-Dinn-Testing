@@ -39,11 +39,16 @@ public class MenuFateReason : Singleton<MenuFateReason>
     [SerializeField]
     public int pageCount = 4;
     public string fatesDestinationFolder = "Assets/Game Objects/Scriptable Objects/Fate Reasons/Resources";
-    
+
+    MenuManager menuManager;
+    private MenuFate menuFate;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        menuManager = MenuManager.Instance;
+        menuFate = menuManager.menuFate;
+
         GetButtonObjects(btnGrp_Reasons, btnObjList_Reasons);
         Debug.Log("Count in buttons List " + btnObjList_Reasons.Count);
         
@@ -57,6 +62,18 @@ public class MenuFateReason : Singleton<MenuFateReason>
         //SwitchFatePopup(false);
         ChangePage(0);
         ChangePage(0);
+    }
+
+    private void OnEnable()
+    {
+        // turn off buttons of previous page
+        MenuManager.Instance.menuFate.DisableFateMenuButtons();
+    }
+
+    private void OnDisable()
+    {
+        // turn on buttons of previous page
+        menuManager.menuFate.EnableFateMenuButtons();
     }
 
     public void ChangePage(int pagesTurned)

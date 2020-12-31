@@ -11,10 +11,41 @@ public class MenuFate : MonoBehaviour
         btn_Name, btn_FateReason, btn_Attacker;
     public TMP_Text name_TMPtext, fateReason_TMPtext, attacker_TMPtext;
     public FatePage currentFatePage;
+    public bool disabled = true;
 
     private void Start()
     {
         PopulatePage();
+    }
+
+    private void OnEnable()
+    {
+        PopulatePage();
+    }
+
+    public void PopulatePage()
+    {
+        if (currentFatePage.currentName == "Unknown")
+        {
+            name_TMPtext.text = "This unknown soul";
+        }
+        else
+        {
+            name_TMPtext.text = currentFatePage.currentName;
+        }
+
+        fateReason_TMPtext.text = currentFatePage.UpdateFateSentence();
+        if (currentFatePage.hasAttacker == true)
+        {
+            btn_Attacker.SetActive(true);
+            attacker_TMPtext.text = "by " + currentFatePage.currentAttacker;
+        }
+        else
+        {
+            btn_Attacker.SetActive(false);
+        }
+
+        portraitObj.GetComponent<Image>().sprite = currentFatePage.portrait;
     }
 
     public void SelectNewFate(FateReason fateReason)
@@ -39,35 +70,49 @@ public class MenuFate : MonoBehaviour
             UI_FateReasonPopup.SetActive(true);
         }
     }
-    private void OnEnable()
+
+    public void EnableFateMenuButtons()
     {
-        PopulatePage();
+        btn_Name.GetComponent<Button>().enabled = true;
+        btn_Name.GetComponent<FateReasonButton>().disableVisuals = false;
+
+        btn_FateReason.GetComponent<Button>().enabled = true;
+        btn_FateReason.GetComponent<FateReasonButton>().disableVisuals = false;
+
+        if (btn_Attacker.activeInHierarchy)
+        {
+            btn_Attacker.GetComponent<Button>().enabled = true;
+            btn_Attacker.GetComponent<FateReasonButton>().disableVisuals = false;
+        }
+            
+        disabled = false;
     }
 
-    public void PopulatePage()
+    public void DisableFateMenuButtons()
     {
-        if(currentFatePage.currentName == "Unknown")
-        {
-            name_TMPtext.text = "This unknown soul";
-        }
-        else
-        {
-            name_TMPtext.text = currentFatePage.currentName;
-        }
-        
-        fateReason_TMPtext.text = currentFatePage.UpdateFateSentence();
-        if(currentFatePage.hasAttacker == true)
-        {
-            btn_Attacker.SetActive(true);
-            attacker_TMPtext.text = "by " + currentFatePage.currentAttacker;
-        }
-        else
-        {
-            btn_Attacker.SetActive(false);
-        }
+        btn_Name.GetComponent<Button>().enabled = false;
+        btn_Name.GetComponent<FateReasonButton>().disableVisuals = true;
 
-        portraitObj.GetComponent<Image>().sprite = currentFatePage.portrait;
+        btn_FateReason.GetComponent<Button>().enabled = false;
+        btn_FateReason.GetComponent<FateReasonButton>().disableVisuals = true;
+
+        if (btn_Attacker.activeInHierarchy)
+        {
+            btn_Attacker.GetComponent<Button>().enabled = false;
+            btn_Attacker.GetComponent<FateReasonButton>().disableVisuals = true;
+        }
+            
+        disabled = true;
     }
+
+    public void ToggleFateMenuButtons()
+    {
+        if (disabled)
+            EnableFateMenuButtons();
+        else
+            DisableFateMenuButtons();
+    }
+   
 
     public void OpenFatePopup(FatePage fatePage)
     {
