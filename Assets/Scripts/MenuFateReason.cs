@@ -60,7 +60,7 @@ public class MenuFateReason : Singleton<MenuFateReason>
         currentPage = 1;
         //pageCount = (int)Mathf.Ceil(fateReasonsList.Count / btnObjList_Reasons.Count);
         //SwitchFatePopup(false);
-        ChangePage(0);
+        //ChangePage(0);
         ChangePage(0);
     }
 

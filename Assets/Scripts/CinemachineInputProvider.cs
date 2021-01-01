@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CinemachineInputProvider : MonoBehaviour
+public class CinemachineInputProvider : ButtonController
 {
     // Start is called before the first frame update
     void Start()

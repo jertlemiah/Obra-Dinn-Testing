@@ -20,7 +20,7 @@ public class ButtonController : MonoBehaviour,
     [SerializeField]
     bool isFateBox = false;
     [SerializeField]
-    FatePage fatePage;
+    CrewMember fatePage;
 
     [SerializeField]
     public bool disableVisuals = false;
@@ -39,7 +39,10 @@ public class ButtonController : MonoBehaviour,
         //menuManager = MenuManager.Instance;
     }
 
-
+    private void OnDisable()
+    {
+        this.UiSelected.SetActive(false);
+    }
 
     public void OnSelect(BaseEventData eventData)
     {

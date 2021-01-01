@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -144,7 +144,12 @@ MonoBehaviour:
   tmpText: {fileID: 2078175587466001870}
   isFateBox: 0
   fatePage: {fileID: 0}
+  disableVisuals: 0
   fateReason: {fileID: 0}
+  detailsArrow: {fileID: 0}
+  hasDetails: 0
+  showDetails: 0
+  detailsList: []
 --- !u!1 &2951952072966215259
 GameObject:
   m_ObjectHideFlags: 0

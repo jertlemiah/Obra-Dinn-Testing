@@ -450,7 +450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -513,9 +513,11 @@ MonoBehaviour:
   tmpText: {fileID: 3756100403572352572}
   isFateBox: 0
   fatePage: {fileID: 0}
+  disableVisuals: 0
   fateReason: {fileID: 0}
   detailsArrow: {fileID: 3480380063352721309}
   hasDetails: 0
+  showDetails: 0
   detailsList: []
 --- !u!1 &3480380063352721309
 GameObject:

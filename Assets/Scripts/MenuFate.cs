@@ -10,7 +10,7 @@ public class MenuFate : MonoBehaviour
         portraitObj,
         btn_Name, btn_FateReason, btn_Attacker;
     public TMP_Text name_TMPtext, fateReason_TMPtext, attacker_TMPtext;
-    public FatePage currentFatePage;
+    public CrewMember currentFatePage;
     public bool disabled = true;
 
     private void Start()
@@ -55,7 +55,7 @@ public class MenuFate : MonoBehaviour
         ToggleFateReasonPopup();
     }
 
-    public void UpdatedSelectedFate(FatePage newFateDetails)
+    public void UpdatedSelectedFate(CrewMember newFateDetails)
     {
         currentFatePage.currentName = newFateDetails.currentName;
     }
@@ -114,7 +114,7 @@ public class MenuFate : MonoBehaviour
     }
    
 
-    public void OpenFatePopup(FatePage fatePage)
+    public void OpenFatePopup(CrewMember fatePage)
     {
         currentFatePage = fatePage;
         UI_FateReasonPopup.SetActive(true);
