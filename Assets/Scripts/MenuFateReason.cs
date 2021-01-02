@@ -80,7 +80,7 @@ public class MenuFateReason : Singleton<MenuFateReason>
     {
         //Debug.Log("btnObjList_Reasons.Count: " + btnObjList_Reasons.Count);
         //Debug.Log("fateReasonsList.Count: " + fateReasonsList.Count);
-        pageCount = (int)Mathf.Ceil(fateReasonsList.Count / btnObjList_Reasons.Count);
+        pageCount = (int)Mathf.Ceil((float)fateReasonsList.Count / (float)btnObjList_Reasons.Count);
         Debug.Log("ChangePage called, on page number: " + currentPage + 
             " turning " + pagesTurned + " pages");
         //Debug.Log(pageCount);

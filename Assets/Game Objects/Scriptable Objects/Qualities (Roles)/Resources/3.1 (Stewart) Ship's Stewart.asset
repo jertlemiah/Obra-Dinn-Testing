@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22e887ef97aeb764c986344ff8d242b9, type: 3}
-  m_Name: 1 (Officer) Captain
+  m_Name: 3.1 (Stewart) Ship's Stewart
   m_EditorClassIdentifier: 
-  role: Captain
-  surrole: Officer
-  surroleOrder: 1
+  role: Ship's Stewart
+  surrole: Stewart
+  surroleOrder: 3

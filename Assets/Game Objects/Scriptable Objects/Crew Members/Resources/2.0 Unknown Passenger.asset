@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fe7e53565fa7c4e8300cff8303a7a7, type: 3}
+  m_Name: 2.0 Unknown Passenger
+  m_EditorClassIdentifier: 
+  internalID: 0
+  correctFate: 0
+  confirmedFate: 0
+  hasAttacker: 0
+  isGeneric: 1
+  usesMasculine: 1
+  currentName: Unknown
+  correctName: 
+  crewOrigin: Unknown
+  currentAttacker: Unknown
+  quality: {fileID: 11400000, guid: 2809ba240b25c48459c2adde56b33255, type: 2}
+  currentReason: {fileID: 11400000, guid: 998fcd1b6a25bee4e89289b04d3eeb9e, type: 2}
+  acceptableFates: []
+  fateSentence: 
+  portrait: {fileID: 0}

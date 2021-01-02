@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2de2c370093fbcb4eb5fced94f34d7fe, type: 3}
-  m_Name: Unknown
+  m_Script: {fileID: 11500000, guid: 22e887ef97aeb764c986344ff8d242b9, type: 3}
+  m_Name: 1.0 Unknown Officer
   m_EditorClassIdentifier: 
-  fateName: Unknown
-  detail: garbage
-  rawSentence: ' met an unknown fate.'
-  hasDetails: 0
-  requiresAttacker: 0
+  role: Unknown
+  surrole: Officer
+  surroleOrder: 1

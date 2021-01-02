@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEditor;
 
 public class MenuFateCrew : MonoBehaviour
 {
@@ -16,8 +17,11 @@ public class MenuFateCrew : MonoBehaviour
     private MenuFate menuFate;
 
     public List<GameObject> btnObjList_Crew = new List<GameObject>();
-
     public List<CrewMember> crewMemberList = new List<CrewMember>();
+    public List<Quality> qualityList = new List<Quality>();
+
+    [SerializeField]
+    private string pathToCrewMembers = "Assets/Game Objects/Scriptable Objects/Crew Members/Resources";
 
     public int currentPage = 1;
     [SerializeField]
@@ -32,7 +36,9 @@ public class MenuFateCrew : MonoBehaviour
 
         GetButtonObjects(btnGrp_Crew, btnObjList_Crew);
         LoadCrewMemberList();
-        
+        LoadQualityList();
+
+
         ChangePage(0);
     }
 
@@ -57,6 +63,9 @@ public class MenuFateCrew : MonoBehaviour
         {
             ButtonControllerCrew buttonScript = buttonObj.GetComponent<ButtonControllerCrew>();
 
+            Debug.Log("sourceList.Count: " + sourceList.Count);
+            Debug.Log("btnObjList.Count: " + btnObjList.Count);
+
             // If there is no further information to populate list with, turn off button
             if ((i + (currentPage - 1) * btnObjList.Count) >= sourceList.Count)
             {
@@ -64,10 +73,12 @@ public class MenuFateCrew : MonoBehaviour
                 //buttonScript.enabled = false;             
             }
             // Else populate button with info
+            else
             {
                 Debug.Log("Current Page" + currentPage);
                 Debug.Log("About to try to access element: " + (i + (currentPage - 1) * btnObjList.Count));
-                buttonScript.ChangeCrew(sourceList[i + (currentPage - 1) * btnObjList.Count]);
+                CrewMember newCrewMember = sourceList[i + (currentPage - 1) * btnObjList.Count];
+                buttonScript.ChangeCrew(newCrewMember);
             }
             i++;
         }
@@ -85,7 +96,13 @@ public class MenuFateCrew : MonoBehaviour
     {
         //Debug.Log("btnObjList_Reasons.Count: " + btnObjList_Reasons.Count);
         //Debug.Log("fateReasonsList.Count: " + fateReasonsList.Count);
-        pageCount = (int)Mathf.Ceil(crewMemberList.Count / btnObjList_Crew.Count);
+        pageCount = (int)Mathf.Clamp(Mathf.Ceil((float)crewMemberList.Count / (float)btnObjList_Crew.Count), 1, 10);
+        //Debug.Log("crewMemberList.Count: " + crewMemberList.Count);
+        //Debug.Log("btnObjList_Crew.Count: " + btnObjList_Crew.Count);
+       // Debug.Log("Div: " + Mathf.Ceil((float)crewMemberList.Count / btnObjList_Crew.Count));
+
+       // Debug.Log("15 / 12: " + Mathf.Ceil(15 / 12));
+
         Debug.Log("ChangePage called, on page number: " + currentPage +
             " turning " + pagesTurned + " pages");
         //Debug.Log(pageCount);
@@ -146,10 +163,85 @@ public class MenuFateCrew : MonoBehaviour
         }
     }
 
+    private void LoadQualityList()
+    {
+        qualityList.Clear();
+        qualityList = Resources.LoadAll("", typeof(Quality)).Cast<Quality>().ToList();
+        Debug.Log("Loaded " + qualityList.Count + " qualties");
+    }
+
     private void LoadCrewMemberList()
     {
         crewMemberList.Clear();
-        crewMemberList = Resources.LoadAll("", typeof(CrewMember)).Cast< CrewMember>().ToList();
-        //Debug.Log("Loaded " + fateReasons.Count + " fateReason scriptable objects from the folder: " + fatesDestinationFolder);
+        crewMemberList = Resources.LoadAll(pathToCrewMembers, typeof(CrewMember)).Cast< CrewMember>().ToList();
+        Debug.Log("Loaded " + crewMemberList.Count + " crewmembers");
+    }
+
+    public void ReadFateCrewFile()
+    {
+        fateReasonsList.Clear();
+        //if (Directory.Exists(fatesDestinationFolder) == true)
+        //{
+        //    Directory.Delete(fatesDestinationFolder, true);
+        //}
+        //Directory.CreateDirectory(fatesDestinationFolder);
+
+        List<FateReasonJson> fateReasonsJson = JsonConvert.DeserializeObject<List<FateReasonJson>>(File.ReadAllText(fateReasonsJsonFileName));
+
+        foreach (FateReasonJson reasonJson in fateReasonsJson)
+        {
+            //Debug.Log(reasonJson.name + " has details?: " + reasonJson.hasDetails);
+            if (reasonJson.hasDetails == true)
+            {
+
+                foreach (string detail in reasonJson.details)
+                {
+                    //Debug.Log(" option: " + detail);
+                    FateReason newReason = ScriptableObject.CreateInstance<FateReason>();
+                    newReason.fateName = reasonJson.name;
+                    newReason.rawSentence = reasonJson.sentence;
+                    newReason.hasDetails = reasonJson.hasDetails;
+                    newReason.requiresAttacker = reasonJson.requiresAttacker;
+                    newReason.detail = detail;
+                    fateReasonsList.Add(newReason);
+                }
+            }
+            else
+            {
+                FateReason newReason = ScriptableObject.CreateInstance<FateReason>();
+                newReason.fateName = reasonJson.name;
+                newReason.rawSentence = reasonJson.sentence;
+                newReason.hasDetails = reasonJson.hasDetails;
+                newReason.requiresAttacker = reasonJson.requiresAttacker;
+                fateReasonsList.Add(newReason);
+            }
+        }
+
+        Debug.Log("How many elements are in fateReasons? " + fateReasonsList.Count);
+
+        foreach (var reason in fateReasonsList)
+        {
+            string assetName = "";
+            if (reason.hasDetails)
+            {
+                assetName = reason.fateName + " (" + reason.detail + ").asset";
+            }
+            else
+            {
+                assetName = reason.fateName + ".asset";
+            }
+            Debug.Log("Creating FateReason asset '" + assetName + "' in " + fatesDestinationFolder);
+            if (File.Exists(fatesDestinationFolder + "/" + assetName) == true)
+            {
+                //File.Delete(fatesDestinationFolder + "/" + assetName);
+                Debug.Log("Skipping already existing FateReason '" + assetName + "'");
+            }
+            else
+            {
+                AssetDatabase.CreateAsset(reason, fatesDestinationFolder + "/" + assetName);
+            }
+
+        }
+        //LoadCreatedFateReasons();
     }
 }

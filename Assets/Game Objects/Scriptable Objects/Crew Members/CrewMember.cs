@@ -10,6 +10,7 @@ public class CrewMember : ScriptableObject
     public bool correctFate = false,
         confirmedFate = false,
         hasAttacker = false,
+        isGeneric = false,
         usesMasculine = true;
 
     public string currentName = "Unknown",

@@ -16,13 +16,29 @@ public class ButtonControllerCrew : ButtonController
     {
         crewMember = newCrewMember;
 
-        if(newCrewMember.correctName == "Unknown")
+        //if(!newCrewMember.quality)
+        //{
+        //    newCrewMember.quality = fin
+        //}
+
+        if (newCrewMember.quality.surrole == "Unknown")
         {
             UpdateText("Unknown");
         }
         else
+        if (crewMember.isGeneric == true)
         {
-            UpdateText(crewMember.internalID.ToString(), crewMember.correctName, crewMember.quality.role, crewMember.crewOrigin);
+            UpdateText("", "Unknown", crewMember.quality.surrole, "");
+        }
+        else
+        {
+            string firstName, lastName = "";
+            string[] names = crewMember.correctName.Split();
+            firstName = names[0];
+            if (names.Length >= 2)
+                lastName = names[names.Length - 1];
+
+            UpdateText(crewMember.internalID.ToString(), firstName + " " + lastName, crewMember.quality.role, crewMember.crewOrigin);
         }
 
     }
