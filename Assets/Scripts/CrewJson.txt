@@ -1,0 +1,612 @@
+[
+    {
+        "id": 1,
+        "crewName": "Robert Witterel",
+        "crewQuality": "Captain",
+        "crewOrigin": "England",
+        "fateReason": "Suicide",
+        "fateDetail": "Gun",
+        "fateRevealed": "Chapter 10, part 4",
+        "appearances": 15
+    },
+    {
+        "id": 2,
+        "crewName": "William Hoscut",
+        "crewQuality": "First Mate",
+        "crewOrigin": "Scotland",
+        "fateReason": "Shot",
+        "fateDetail": "Gun",
+        "attacker": "captain Witterel",
+        "fateRevealed": "Chapter 10, part 1",
+        "appearances": 14
+    },
+    {
+        "id": 3,
+        "crewName": "Edward Nichols",
+        "crewQuality": "Second Mate",
+        "crewOrigin": "England",
+        "fateReason": "Shot",
+        "fateDetail": "Gun",
+        "attacker": "Chioh Tan",
+        "fateRevealed": "Chapter 4, part 6",
+        "appearances": 9
+    },
+    {
+        "id": 4,
+        "crewName": "Martin Perrott",
+        "crewQuality": "Third Mate",
+        "crewOrigin": "England",
+        "fateReason": "Spiked",
+        "attacker": "a mermaid",
+        "fateRevealed": "Chapter 8, part 4",
+        "appearances": 10
+    },
+    {
+        "id": 5,
+        "crewName": "John Davies",
+        "crewQuality": "Fourth Mate",
+        "crewOrigin": "England",
+        "fateReason": "Clubbed",
+        "attacker": "Henry Brennan",
+        "fateRevealed": "Chapter 9, part 5",
+        "appearances": 12
+    },
+    {
+        "id": 6,
+        "crewName": "Alfred Klestil",
+        "crewQuality": "Bosun",
+        "crewOrigin": "Austria",
+        "fateReason": "Torn Apart",
+        "attacker": "a beast",
+        "fateRevealed": "Chapter 9, part 1",
+        "appearances": 11
+    },
+    {
+        "id": 7,
+        "crewName": "Charles Miner",
+        "crewQuality": "Bosun's Mate",
+        "crewOrigin": "France",
+        "fateReason": "Torn Apart",
+        "attacker": "a beast",
+        "fateRevealed": "During chapter 7",
+        "appearances": 14
+    },
+    {
+        "id": 8,
+        "crewName": "Henry Evans",
+        "crewQuality": "Surgeon",
+        "crewOrigin": "England",
+        "fateReason": "Escaped",
+        "fateDetail": "Africa",
+        "fateRevealed": "During chapter 9",
+        "appearances": 11
+    },
+    {
+        "id": 9,
+        "crewName": "James Wallace",
+        "crewQuality": "Surgeon's mate",
+        "crewOrigin": "England",
+        "fateReason": "Decapitated",
+        "attacker": "a beast",
+        "fateRevealed": "Chapter 6, part 4",
+        "appearances": 6
+    },
+    {
+        "id": 10,
+        "crewName": "Winston Smith",
+        "crewQuality": "Carpenter",
+        "crewOrigin": "America",
+        "fateReason": "Speared",
+        "attacker": "a beast",
+        "fateRevealed": "Chapter 6, part 8",
+        "appearances": 8
+    },
+    {
+        "id": 11,
+        "crewName": "Marcus Gibbs",
+        "crewQuality": "Carpenter's Mate",
+        "crewOrigin": "America",
+        "fateReason": "Spiked",
+        "attacker": "a beast",
+        "fateRevealed": "Chapter 6, part 3",
+        "appearances": 4
+    },
+    {
+        "id": 12,
+        "crewName": "Thomas Sefton",
+        "crewQuality": "Cook",
+        "crewOrigin": "England",
+        "fateReason": "Struck",
+        "fateDetail": "Tail",
+        "attacker": "the tail",
+        "fateRevealed": "Chapter 5, part 2",
+        "appearances": 2
+    },
+    {
+        "id": 13,
+        "crewName": "Emil O'Farrell",
+        "crewQuality": "Butcher",
+        "crewOrigin": "Ireland",
+        "fateReason": "Spiked",
+        "attacker": "a beast",
+        "fateRevealed": "Chapter 6, part 6",
+        "appearances": 7
+    },
+    {
+        "id": 14,
+        "crewName": "Christian Wolff",
+        "crewQuality": "Gunner",
+        "crewOrigin": "Austria",
+        "fateReason": "Shot",
+        "fateDetail": "Cannon",
+        "attacker": "a loose",
+        "fateRevealed": "Chapter 7, part 4",
+        "appearances": 6
+    },
+    {
+        "id": 15,
+        "crewName": "Olus Wiater",
+        "crewQuality": "Gunner's Mate",
+        "crewOrigin": "Poland",
+        "fateReason": "Shot",
+        "fateDetail": "Gun",
+        "attacker": "John Davies",
+        "fateRevealed": "Chapter 9, part 4",
+        "appearances": 12
+    },
+    {
+        "id": 16,
+        "crewName": "Duncan McKay",
+        "crewQuality": "Purser",
+        "crewOrigin": "Scotland",
+        "fateReason": "Drowned",
+        "fateRevealed": "During chapter 7",
+        "appearances": 6
+    },
+    {
+        "id": 17,
+        "crewName": "Finley Dalton",
+        "crewQuality": "Helmsman",
+        "crewOrigin": "England",
+        "fateReason": "Drowned",
+        "attacker": "a beast",
+        "fateRevealed": "During chapter 7",
+        "appearances": 2
+    },
+    {
+        "id": 18,
+        "crewName": "Edward Spratt",
+        "crewQuality": "Artist",
+        "crewOrigin": "England",
+        "fateReason": "Crushed",
+        "fateDetail": "Beast",
+        "attacker": "a beast",
+        "fateRevealed": "Chapter 7, part 2",
+        "appearances": 5
+    },
+    {
+        "id": 19,
+        "crewName": "Abigail Hoscut Witterel",
+        "crewQuality": "Passenger",
+        "crewOrigin": "Scotland",
+        "fateReason": "Crushed",
+        "fateDetail": "Beast",
+        "attacker": "a kraken",
+        "fateRevealed": "Chapter 7, part 8",
+        "appearances": 1
+    },
+    {
+        "id": 20,
+        "crewName": "Nunzio Pasqua",
+        "crewQuality": "Passenger",
+        "crewOrigin": "Italy",
+        "fateReason": "Knifed",
+        "attacker": "Edward Nichols",
+        "fateRevealed": "Chapter 3, part 1",
+        "appearances": 1
+    },
+    {
+        "id": 21,
+        "crewName": "Emily Jackson",
+        "crewQuality": "Passenger",
+        "crewOrigin": "England",
+        "fateReason": "Alive",
+        "fateDetail": "Africa",
+        "fateRevealed": "During chapter 9",
+        "appearances": 3
+    },
+    {
+        "id": 22,
+        "crewName": "Jane Bird",
+        "crewQuality": "Passenger",
+        "crewOrigin": "England",
+        "fateReason": "Alive",
+        "fateDetail": "Africa",
+        "fateRevealed": "During chapter 9",
+        "appearances": 3
+    },
+    {
+        "id": 23,
+        "crewName": "Bun-Lan Lim",
+        "crewQuality": "Passenger",
+        "crewOrigin": "Formosa",
+        "fateReason": "Clawed",
+        "attacker": "a beast",
+        "fateRevealed": "Chapter 4, part 4",
+        "appearances": 6
+    },
+    {
+        "id": 24,
+        "crewName": "It-Beng Sia",
+        "crewQuality": "Passenger",
+        "crewOrigin": "Formosa",
+        "fateReason": "Burned",
+        "attacker": "the chest's",
+        "fateRevealed": "Chapter 4, part 5",
+        "appearances": 9
+    },
+    {
+        "id": 25,
+        "crewName": "Chioh Tan",
+        "crewQuality": "Passenger",
+        "crewOrigin": "Formosa",
+        "fateReason": "Spiked",
+        "attacker": "a suspended",
+        "fateRevealed": "Chapter 5, part 1",
+        "appearances": 5
+    },
+    {
+        "id": 26,
+        "crewName": "Hok-Seng Lau",
+        "crewQuality": "Passenger",
+        "crewOrigin": "Formosa",
+        "fateReason": "Shot",
+        "fateDetail": "Gun",
+        "attacker": "Henry Brennan",
+        "fateRevealed": "Chapter 3, part 2",
+        "appearances": 4
+    },
+    {
+        "id": 27,
+        "crewName": "Zungi Sathi",
+        "crewQuality": "Ship's Steward",
+        "crewOrigin": "India",
+        "fateReason": "Shot",
+        "fateDetail": "Gun",
+        "attacker": "Charles Miner",
+        "fateRevealed": "Chapter 6, part 7",
+        "appearances": 7
+    },
+    {
+        "id": 28,
+        "crewName": "Fillip Dahl",
+        "crewQuality": "Captain's Steward",
+        "crewOrigin": "Sweden",
+        "fateReason": "Burned",
+        "attacker": "the chest's",
+        "fateRevealed": "Chapter 8, part 1",
+        "appearances": 4
+    },
+    {
+        "id": 29,
+        "crewName": "Paul Moss",
+        "crewQuality": "1st Mate's Steward",
+        "crewOrigin": "Wales",
+        "fateReason": "Killed (sword)",
+        "attacker": "Leonid Volkov",
+        "fateRevealed": "Chapter 9, part 2",
+        "appearances": 5
+    },
+    {
+        "id": 30,
+        "crewName": "Samuel Galligan",
+        "crewQuality": "2nd Mate's Steward",
+        "crewOrigin": "Ireland",
+        "fateReason": "Knifed",
+        "attacker": "It-Beng Sia",
+        "fateRevealed": "Chapter 4, part 3",
+        "appearances": 5
+    },
+    {
+        "id": 31,
+        "crewName": "Roderick Andersen",
+        "crewQuality": "3rd Mate's Steward",
+        "crewOrigin": "England",
+        "fateReason": "Crushed",
+        "fateDetail": "Cannon",
+        "attacker": "a loose",
+        "fateRevealed": "Chapter 7, part 5",
+        "appearances": 4
+    },
+    {
+        "id": 32,
+        "crewName": "Davey James",
+        "crewQuality": "4th Mate's Steward",
+        "crewOrigin": "England",
+        "fateReason": "Alive",
+        "fateDetail": "Africa",
+        "fateRevealed": "During chapter 9",
+        "appearances": 7
+    },
+    {
+        "id": 33,
+        "crewName": "Peter Milroy",
+        "crewQuality": "Midshipman",
+        "crewOrigin": "England",
+        "fateReason": "Exploded",
+        "attacker": "lit cartridge",
+        "fateRevealed": "Chapter 7, part 6",
+        "appearances": 10
+    },
+    {
+        "id": 34,
+        "crewName": "Thomas Lanke",
+        "crewQuality": "Midshipman",
+        "crewOrigin": "England",
+        "fateReason": "Knifed",
+        "attacker": "Olus Wiater",
+        "fateRevealed": "Chapter 9, part 6",
+        "appearances": 15
+    },
+    {
+        "id": 35,
+        "crewName": "Charles Hershtik",
+        "crewQuality": "Midshipman",
+        "crewOrigin": "England",
+        "fateReason": "Burned",
+        "attacker": "a beast",
+        "fateRevealed": "Chapter 6, part 5",
+        "appearances": 4
+    },
+    {
+        "id": 36,
+        "crewName": "Omid Gul",
+        "crewQuality": "Topman",
+        "crewOrigin": "Persia",
+        "fateReason": "Fell",
+        "fateRevealed": "During chapter 7",
+        "appearances": 7
+    },
+    {
+        "id": 37,
+        "crewName": "Timothy Butement",
+        "crewQuality": "Topman",
+        "crewOrigin": "Scotland",
+        "fateReason": "Shot",
+        "fateDetail": "Gun",
+        "attacker": "Edward Nichols",
+        "fateRevealed": "Chapter 3, part 3",
+        "appearances": 2
+    },
+    {
+        "id": 38,
+        "crewName": "Huang Li",
+        "crewQuality": "Topman",
+        "crewOrigin": "China",
+        "fateReason": "Electrocuted",
+        "attacker": "lightning strike",
+        "fateRevealed": "Chapter 6, part 1",
+        "appearances": 5
+    },
+    {
+        "id": 39,
+        "crewName": "Jie Zhang",
+        "crewQuality": "Topman",
+        "crewOrigin": "China",
+        "fateReason": "Decapitated",
+        "attacker": "a beast",
+        "fateRevealed": "Chapter 6, part 4",
+        "appearances": 4
+    },
+    {
+        "id": 40,
+        "crewName": "Li Hong",
+        "crewQuality": "Topman",
+        "crewOrigin": "China",
+        "fateReason": "Speared",
+        "attacker": "a beast",
+        "fateRevealed": "Chapter 4, part 1",
+        "appearances": 4
+    },
+    {
+        "id": 41,
+        "crewName": "Wei Lee",
+        "crewQuality": "Topman",
+        "crewOrigin": "China",
+        "fateReason": "Drowned",
+        "attacker": "a beast",
+        "fateRevealed": "During chapter 7",
+        "appearances": 7
+    },
+    {
+        "id": 42,
+        "crewName": "Nicholas Botterill",
+        "crewQuality": "Topman",
+        "crewOrigin": "England",
+        "fateReason": "Speared",
+        "attacker": "a beast",
+        "fateRevealed": "Chapter 6, part 2",
+        "appearances": 4
+    },
+    {
+        "id": 43,
+        "crewName": "Maba ",
+        "crewQuality": "Topman",
+        "crewOrigin": "New Guinea",
+        "fateReason": "Torn Apart",
+        "attacker": "a beast",
+        "fateRevealed": "Chapter 7, part 7",
+        "appearances": 8
+    },
+    {
+        "id": 44,
+        "crewName": "Lewis Walker",
+        "crewQuality": "Topman",
+        "crewOrigin": "England",
+        "fateReason": "Clubbed",
+        "attacker": "captain Witterel",
+        "fateRevealed": "Chapter 10, part 3",
+        "appearances": 14
+    },
+    {
+        "id": 45,
+        "crewName": "Leonid Volkov",
+        "crewQuality": "Topman",
+        "crewOrigin": "Russia",
+        "fateReason": "Shot",
+        "fateDetail": "Gun",
+        "attacker": "Emily Jackson",
+        "fateRevealed": "Chapter 9, part 3",
+        "appearances": 11
+    },
+    {
+        "id": 46,
+        "crewName": "Alarcus Nikishin",
+        "crewQuality": "Seaman",
+        "crewOrigin": "Russia",
+        "fateReason": "Drowned",
+        "attacker": "a beast",
+        "fateRevealed": "During chapter 4",
+        "appearances": 4
+    },
+    {
+        "id": 47,
+        "crewName": "Aleksei Toporov",
+        "crewQuality": "Seaman",
+        "crewOrigin": "Russia",
+        "fateReason": "Drowned",
+        "attacker": "a beast",
+        "fateRevealed": "During chapter 4",
+        "appearances": 8
+    },
+    {
+        "id": 48,
+        "crewName": "Nathan Peters",
+        "crewQuality": "Seaman",
+        "crewOrigin": "England",
+        "fateReason": "Drowned",
+        "fateRevealed": "During chapter 7",
+        "appearances": 15
+    },
+    {
+        "id": 49,
+        "crewName": "Lars Linde",
+        "crewQuality": "Seaman",
+        "crewOrigin": "Denmark",
+        "fateReason": "Clubbed",
+        "attacker": "Nathan Peters",
+        "fateRevealed": "Chapter 7, part 1",
+        "appearances": 12
+    },
+    {
+        "id": 50,
+        "crewName": "John Naples",
+        "crewQuality": "Seaman",
+        "crewOrigin": "Wales",
+        "fateReason": "Killed",
+        "attacker": "Fillip Dahl",
+        "fateRevealed": "Chapter 5, part 4",
+        "appearances": 5
+    },
+    {
+        "id": 51,
+        "crewName": "Renfred Rajub",
+        "crewQuality": "Seaman",
+        "crewOrigin": "India",
+        "fateReason": "Died",
+        "fateRevealed": "Chapter 2, part 2",
+        "appearances": 4
+    },
+    {
+        "id": 52,
+        "crewName": "Abraham Akbar",
+        "crewQuality": "Seaman",
+        "crewOrigin": "India",
+        "fateReason": "Crushed",
+        "fateDetail": "Cannon",
+        "attacker": "a loose",
+        "fateRevealed": "Chapter 7, part 3",
+        "appearances": 12
+    },
+    {
+        "id": 53,
+        "crewName": "William Wasim",
+        "crewQuality": "Seaman",
+        "crewOrigin": "India",
+        "fateReason": "Crushed",
+        "fateDetail": "Cargo",
+        "attacker": "falling cargo",
+        "fateRevealed": "Chapter 5, part 3",
+        "appearances": 6
+    },
+    {
+        "id": 54,
+        "crewName": "Soloman Syed",
+        "crewQuality": "Seaman",
+        "crewOrigin": "India",
+        "fateReason": "Illness",
+        "fateRevealed": "Chapter 2, part 1",
+        "appearances": 3
+    },
+    {
+        "id": 55,
+        "crewName": "Hamadou Diom",
+        "crewQuality": "Seaman",
+        "crewOrigin": "Siera Leona",
+        "fateReason": "Spiked",
+        "attacker": "a beast",
+        "fateRevealed": "Chapter 5, part 1",
+        "appearances": 4
+    },
+    {
+        "id": 56,
+        "crewName": "Henry Brennan",
+        "crewQuality": "Seaman",
+        "crewOrigin": "England",
+        "fateReason": "Knifed",
+        "attacker": "captain Witterel",
+        "fateRevealed": "Chapter 10, part 2",
+        "appearances": 17
+    },
+    {
+        "id": 57,
+        "crewName": "Alexander Booth",
+        "crewQuality": "Seaman",
+        "crewOrigin": "England",
+        "fateReason": "Drowned",
+        "fateRevealed": "During chapter 7",
+        "appearances": 11
+    },
+    {
+        "id": 58,
+        "crewName": "Patrick O'Hagan",
+        "crewQuality": "Seaman",
+        "crewOrigin": "Ireland",
+        "fateReason": "Speared",
+        "attacker": "a beast",
+        "fateRevealed": "Chapter 4, part 2",
+        "appearances": 7
+    },
+    {
+        "id": 59,
+        "crewName": "George Shirley",
+        "crewQuality": "Seaman",
+        "crewOrigin": "England",
+        "fateReason": "Shot",
+        "fateDetail": "Cannon",
+        "attacker": "a beast",
+        "fateRevealed": "Chapter 7, part 4",
+        "appearances": 9
+    },
+    {
+        "id": 60,
+        "crewName": "Samuel Peters",
+        "crewQuality": "Seaman",
+        "crewOrigin": "England",
+        "fateReason": "Crushed",
+        "fateDetail": "Cargo",
+        "attacker": "falling cargo",
+        "fateRevealed": "Chapter 1, part 1",
+        "appearances": 1
+    }
+]

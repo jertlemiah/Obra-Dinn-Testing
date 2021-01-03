@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73fe7e53565fa7c4e8300cff8303a7a7, type: 3}
   m_Name: 5.1 Crew # 36 Omid Gul
   m_EditorClassIdentifier: 
-  internalID: 0
+  internalID: 36
   correctFate: 0
   confirmedFate: 0
   hasAttacker: 0

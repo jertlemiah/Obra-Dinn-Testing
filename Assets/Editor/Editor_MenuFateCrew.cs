@@ -13,7 +13,7 @@ public class Editor_MenuFateCrew : Editor
         //EditorGUILayout.LabelField("Repopulate Fate Reaons");
         if (GUILayout.Button("Repopulate Fate Reaons"))
         {
-            myTarget.ReadFateCrewFile();
+            //myTarget.ReadFateCrewFile();
         }
     }
 }
