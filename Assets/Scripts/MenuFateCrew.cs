@@ -21,6 +21,7 @@ public class MenuFateCrew : MonoBehaviour
     public List<GameObject> btnObjList_Crew = new List<GameObject>();
     public List<CrewMember> crewMemberList = new List<CrewMember>();
     public List<Quality> qualityList = new List<Quality>();
+    public List<FateReason> fateReasonsList = new List<FateReason>();
 
     [SerializeField]
     private string pathToCrewMembers = "Assets/Game Objects/Scriptable Objects/Crew Members/Resources",
@@ -180,78 +181,91 @@ public class MenuFateCrew : MonoBehaviour
         Debug.Log("Loaded " + crewMemberList.Count + " crewmembers");
     }
 
+    private void LoadCreatedFateReasons()
+    {
+        fateReasonsList.Clear();
+        fateReasonsList = Resources.LoadAll("", typeof(FateReason)).Cast<FateReason>().ToList<FateReason>();
+        //Debug.Log("Loaded " + fateReasons.Count + " fateReason scriptable objects from the folder: " + fatesDestinationFolder);
+    }
+
     public void ReadFateCrewFile()
     {
         List<CrewMemberJson> fateCrewJsonList = JsonConvert.DeserializeObject<List<CrewMemberJson>>(File.ReadAllText(fateCrewJsonFileName));
+        LoadCreatedFateReasons();
+        LoadQualityList();
+        //FateReason fateReason;
+        string crewFateReason, crewFateDetail, attacker;
+
 
         foreach (CrewMemberJson crewJson in fateCrewJsonList)
         {
             CrewMember newCrewMember = ScriptableObject.CreateInstance<CrewMember>();
-            newCrewMember.correctName = crewJson.crewName;
+            newCrewMember.crewName = crewJson.crewName;
             newCrewMember.internalID = crewJson.id;
             newCrewMember.crewOrigin = crewJson.crewOrigin;
+            newCrewMember.usesMasculine = true;
 
-            //    newReason.fateName = reasonJson.name;
-            //    newReason.rawSentence = reasonJson.sentence;
-            //    newReason.hasDetails = reasonJson.hasDetails;
-            //    newReason.requiresAttacker = reasonJson.requiresAttacker;
-            //    newReason.detail = detail;
-            //    fateReasonsList.Add(newReason);
+            crewFateReason = crewJson.fateReason;
+            crewFateDetail = crewJson.fateDetail;
+            attacker = crewJson.attacker;
 
+            foreach (FateReason fateReason in fateReasonsList)
+            {
+                if(fateReason.fateName == crewFateReason)
+                {
+                    if (fateReason.hasDetails == true)
+                    {
+                        if (fateReason.detail == crewFateDetail)
+                        {
+                            AcceptableFate newAcceptableFate = new AcceptableFate(fateReason, attacker);
+                            newCrewMember.acceptableFates[0] = newAcceptableFate;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        AcceptableFate newAcceptableFate = new AcceptableFate(fateReason, attacker);
+                        newCrewMember.acceptableFates[0] = newAcceptableFate;
+                        break;
+                    }
 
-            //    //Debug.Log(reasonJson.name + " has details?: " + reasonJson.hasDetails);
-            //    if (reasonJson.hasDetails == true)
-            //    {
+                }
+            }
 
-            //        foreach (string detail in reasonJson.details)
-            //        {
-            //            //Debug.Log(" option: " + detail);
-            //            FateReason newReason = ScriptableObject.CreateInstance<FateReason>();
-            //            newReason.fateName = reasonJson.name;
-            //            newReason.rawSentence = reasonJson.sentence;
-            //            newReason.hasDetails = reasonJson.hasDetails;
-            //            newReason.requiresAttacker = reasonJson.requiresAttacker;
-            //            newReason.detail = detail;
-            //            fateReasonsList.Add(newReason);
-            //        }
-            //    }
-            //    else
-            //    {
-            //        FateReason newReason = ScriptableObject.CreateInstance<FateReason>();
-            //        newReason.fateName = reasonJson.name;
-            //        newReason.rawSentence = reasonJson.sentence;
-            //        newReason.hasDetails = reasonJson.hasDetails;
-            //        newReason.requiresAttacker = reasonJson.requiresAttacker;
-            //        fateReasonsList.Add(newReason);
-            //    }
-            //}
+            foreach (Quality newQuality in qualityList)
+            {
+                if (newQuality.role == crewJson.crewQuality)
+                {
+                    newCrewMember.quality = newQuality;
+                    break;
+                }
+            }
 
-            //Debug.Log("How many elements are in fateReasons? " + fateReasonsList.Count);
+            crewMemberList.Add(newCrewMember);
+        }
 
-            //foreach (var reason in fateReasonsList)
-            //{
-            //    string assetName = "";
-            //    if (reason.hasDetails)
-            //    {
-            //        assetName = reason.fateName + " (" + reason.detail + ").asset";
-            //    }
-            //    else
-            //    {
-            //        assetName = reason.fateName + ".asset";
-            //    }
-            //    Debug.Log("Creating FateReason asset '" + assetName + "' in " + fatesDestinationFolder);
-            //    if (File.Exists(fatesDestinationFolder + "/" + assetName) == true)
-            //    {
-            //        //File.Delete(fatesDestinationFolder + "/" + assetName);
-            //        Debug.Log("Skipping already existing FateReason '" + assetName + "'");
-            //    }
-            //    else
-            //    {
-            //        AssetDatabase.CreateAsset(reason, fatesDestinationFolder + "/" + assetName);
-            //    }
+        Debug.Log("How many elements are in crewMemberList? " + crewMemberList.Count);
 
-            //}
-            //LoadCreatedFateReasons();
+        foreach (var crewMember in crewMemberList)
+        {
+            //"1.1 Crew #4 Martin Perrott"
+            string assetName = crewMember.quality.surroleOrder.ToString() 
+                + ".1 Crew #" + crewMember.internalID 
+                + " " + crewMember.crewName 
+                + ".asset";
+
+           
+            if (File.Exists(pathToCrewMembers + "/" + assetName) == true)
+            {
+                //File.Delete(fatesDestinationFolder + "/" + assetName);
+                Debug.Log("Skipping already existing crewMember '" + assetName + "'");
+            }
+            else
+            {
+                Debug.Log("Creating crewMember asset '" + assetName + "' in " + pathToCrewMembers);
+                AssetDatabase.CreateAsset(crewMember, pathToCrewMembers + "/" + assetName);
+            }
+
         }
     }
 }
@@ -260,15 +274,16 @@ public class MenuFateCrew : MonoBehaviour
 public class CrewMemberJson
 {
     /*{
-        "id": 1,
-        "crewName": "Robert Witterel",
-        "crewQuality": "Captain",
+        "id": 3,
+        "crewName": "Edward Nichols",
+        "crewQuality": "Second Mate",
         "crewOrigin": "England",
-        "fateReason": "Suicide",
+        "fateReason": "Shot",
         "fateDetail": "Gun",
-        "fateRevealed": "Chapter 10, part 4",
-        "appearances": 15
-    } */
+        "attacker": "Chioh Tan",
+        "fateRevealed": "Chapter 4, part 6",
+        "appearances": 9
+    }} */
     public int id,
         appearances;
     public string crewName,
@@ -276,7 +291,9 @@ public class CrewMemberJson
         crewOrigin,
         fateReason,
         fateDetail,
+        attacker,
         fateRevealed;
+    public bool usesMasculine;
 }
 
 

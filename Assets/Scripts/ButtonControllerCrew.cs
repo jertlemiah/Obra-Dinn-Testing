@@ -33,7 +33,7 @@ public class ButtonControllerCrew : ButtonController
         else
         {
             string firstName, lastName = "";
-            string[] names = crewMember.correctName.Split();
+            string[] names = crewMember.crewName.Split();
             firstName = names[0];
             if (names.Length >= 2)
                 lastName = names[names.Length - 1];

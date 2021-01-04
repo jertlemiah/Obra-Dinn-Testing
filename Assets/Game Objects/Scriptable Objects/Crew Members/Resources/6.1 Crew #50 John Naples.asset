@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fe7e53565fa7c4e8300cff8303a7a7, type: 3}
+  m_Name: 6.1 Crew #50 John Naples
+  m_EditorClassIdentifier: 
+  internalID: 50
+  correctFate: 0
+  confirmedFate: 0
+  hasAttacker: 0
+  isGeneric: 0
+  usesMasculine: 1
+  currentName: Unknown
+  crewName: John Naples
+  crewOrigin: Wales
+  currentAttacker: Unknown
+  quality: {fileID: 11400000, guid: b164cfb59c903d449b21d0a4125c1163, type: 2}
+  currentReason: {fileID: 11400000, guid: 998fcd1b6a25bee4e89289b04d3eeb9e, type: 2}
+  acceptableFates:
+  - reason: {fileID: 0}
+    attacker: 
+  fateSentence: 
+  portrait: {fileID: 21300000, guid: 3b4d1ab90b29be54d82d73b4093cb2a3, type: 3}

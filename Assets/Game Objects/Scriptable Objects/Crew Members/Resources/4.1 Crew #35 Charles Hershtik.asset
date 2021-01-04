@@ -19,15 +19,13 @@ MonoBehaviour:
   isGeneric: 0
   usesMasculine: 1
   currentName: Unknown
-  correctName: Charles Hershtik
+  crewName: Charles Hershtik
   crewOrigin: England
-  currentAttacker: Bob
+  currentAttacker: Unknown
   quality: {fileID: 11400000, guid: 4d99d792554189b43b1b3017f7edbabf, type: 2}
   currentReason: {fileID: 11400000, guid: 998fcd1b6a25bee4e89289b04d3eeb9e, type: 2}
   acceptableFates:
   - reason: {fileID: 11400000, guid: 662afab0b8dcf24409486e457beef653, type: 2}
-    attacker: 
-  - reason: {fileID: 11400000, guid: eda80defbef36564ab746a0d0b68fb59, type: 2}
-    attacker: Beast
-  fateSentence: ' met an unknown fate.'
-  portrait: {fileID: 21300000, guid: 04112e5414ff1174fa0cfc57dc703f4c, type: 3}
+    attacker: a beast
+  fateSentence: 
+  portrait: {fileID: 21300000, guid: 3b4d1ab90b29be54d82d73b4093cb2a3, type: 3}

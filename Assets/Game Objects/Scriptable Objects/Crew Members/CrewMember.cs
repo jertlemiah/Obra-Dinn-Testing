@@ -14,7 +14,7 @@ public class CrewMember : ScriptableObject
         usesMasculine = true;
 
     public string currentName = "Unknown",
-        correctName,
+        crewName,
         //currentReason = "Unknown",
         //currentDetails = "Unknown",
         crewOrigin = "Unknown",
@@ -27,7 +27,7 @@ public class CrewMember : ScriptableObject
     public FateReason currentReason;
 
     [SerializeField]
-    public AcceptableFate[] acceptableFates;
+    public AcceptableFate[] acceptableFates = new AcceptableFate[1];
 
     [SerializeField]
     public string fateSentence;
@@ -59,7 +59,7 @@ public class CrewMember : ScriptableObject
 
     public bool ValidateFate()
     {
-        if (currentName != correctName)
+        if (currentName != crewName)
         {
             correctFate = false;
             return correctFate;
@@ -87,9 +87,9 @@ public class AcceptableFate
     public FateReason reason;
     public string attacker;
 
-    AcceptableFate() { }
+    public AcceptableFate() { }
 
-    AcceptableFate(FateReason reason, string attacker)
+    public AcceptableFate(FateReason reason, string attacker)
     {
         this.reason = reason;
         this.attacker = attacker;

@@ -19,7 +19,7 @@ MonoBehaviour:
   isGeneric: 0
   usesMasculine: 1
   currentName: Unknown
-  correctName: Edward Nichols
+  crewName: Edward Nichols
   crewOrigin: England
   currentAttacker: Unknown
   quality: {fileID: 11400000, guid: 67550a53569ed8544a44cac29f482c19, type: 2}

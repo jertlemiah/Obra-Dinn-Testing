@@ -19,13 +19,13 @@ MonoBehaviour:
   isGeneric: 0
   usesMasculine: 1
   currentName: Unknown
-  correctName: Martin Perrott
+  crewName: Martin Perrott
   crewOrigin: England
   currentAttacker: Unknown
   quality: {fileID: 11400000, guid: 6d25c9d95b35ea842b8363cf06d18536, type: 2}
   currentReason: {fileID: 11400000, guid: 998fcd1b6a25bee4e89289b04d3eeb9e, type: 2}
   acceptableFates:
   - reason: {fileID: 11400000, guid: 5bff3979ab117624486743612ea84bf7, type: 2}
-    attacker: 
+    attacker: a mermaid
   fateSentence: 
   portrait: {fileID: 21300000, guid: 3b4d1ab90b29be54d82d73b4093cb2a3, type: 3}

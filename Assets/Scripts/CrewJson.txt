@@ -5,9 +5,10 @@
         "crewQuality": "Captain",
         "crewOrigin": "England",
         "fateReason": "Suicide",
-        "fateDetail": "Gun",
+        "fatedetail": "Gun",
         "fateRevealed": "Chapter 10, part 4",
-        "appearances": 15
+        "appearances": 15,
+        "usesMsculine": true
     },
     {
         "id": 2,
@@ -15,10 +16,11 @@
         "crewQuality": "First Mate",
         "crewOrigin": "Scotland",
         "fateReason": "Shot",
-        "fateDetail": "Gun",
+        "fatedetail": "Gun",
         "attacker": "captain Witterel",
         "fateRevealed": "Chapter 10, part 1",
-        "appearances": 14
+        "appearances": 14,
+        "usesMsculine": true
     },
     {
         "id": 3,
@@ -26,10 +28,11 @@
         "crewQuality": "Second Mate",
         "crewOrigin": "England",
         "fateReason": "Shot",
-        "fateDetail": "Gun",
+        "fatedetail": "Gun",
         "attacker": "Chioh Tan",
         "fateRevealed": "Chapter 4, part 6",
-        "appearances": 9
+        "appearances": 9,
+        "usesMsculine": true
     },
     {
         "id": 4,
@@ -39,7 +42,8 @@
         "fateReason": "Spiked",
         "attacker": "a mermaid",
         "fateRevealed": "Chapter 8, part 4",
-        "appearances": 10
+        "appearances": 10,
+        "usesMsculine": true
     },
     {
         "id": 5,
@@ -49,7 +53,8 @@
         "fateReason": "Clubbed",
         "attacker": "Henry Brennan",
         "fateRevealed": "Chapter 9, part 5",
-        "appearances": 12
+        "appearances": 12,
+        "usesMsculine": true
     },
     {
         "id": 6,
@@ -59,7 +64,8 @@
         "fateReason": "Torn Apart",
         "attacker": "a beast",
         "fateRevealed": "Chapter 9, part 1",
-        "appearances": 11
+        "appearances": 11,
+        "usesMsculine": true
     },
     {
         "id": 7,
@@ -69,7 +75,8 @@
         "fateReason": "Torn Apart",
         "attacker": "a beast",
         "fateRevealed": "During chapter 7",
-        "appearances": 14
+        "appearances": 14,
+        "usesMsculine": true
     },
     {
         "id": 8,
@@ -77,9 +84,10 @@
         "crewQuality": "Surgeon",
         "crewOrigin": "England",
         "fateReason": "Escaped",
-        "fateDetail": "Africa",
+        "fatedetail": "Africa",
         "fateRevealed": "During chapter 9",
-        "appearances": 11
+        "appearances": 11,
+        "usesMsculine": true
     },
     {
         "id": 9,
@@ -89,7 +97,8 @@
         "fateReason": "Decapitated",
         "attacker": "a beast",
         "fateRevealed": "Chapter 6, part 4",
-        "appearances": 6
+        "appearances": 6,
+        "usesMsculine": true
     },
     {
         "id": 10,
@@ -99,7 +108,8 @@
         "fateReason": "Speared",
         "attacker": "a beast",
         "fateRevealed": "Chapter 6, part 8",
-        "appearances": 8
+        "appearances": 8,
+        "usesMsculine": true
     },
     {
         "id": 11,
@@ -109,7 +119,8 @@
         "fateReason": "Spiked",
         "attacker": "a beast",
         "fateRevealed": "Chapter 6, part 3",
-        "appearances": 4
+        "appearances": 4,
+        "usesMsculine": true
     },
     {
         "id": 12,
@@ -117,10 +128,11 @@
         "crewQuality": "Cook",
         "crewOrigin": "England",
         "fateReason": "Struck",
-        "fateDetail": "Tail",
+        "fatedetail": "Tail",
         "attacker": "the tail",
         "fateRevealed": "Chapter 5, part 2",
-        "appearances": 2
+        "appearances": 2,
+        "usesMsculine": true
     },
     {
         "id": 13,
@@ -130,7 +142,8 @@
         "fateReason": "Spiked",
         "attacker": "a beast",
         "fateRevealed": "Chapter 6, part 6",
-        "appearances": 7
+        "appearances": 7,
+        "usesMsculine": true
     },
     {
         "id": 14,
@@ -138,10 +151,11 @@
         "crewQuality": "Gunner",
         "crewOrigin": "Austria",
         "fateReason": "Shot",
-        "fateDetail": "Cannon",
+        "fatedetail": "Cannon",
         "attacker": "a loose",
         "fateRevealed": "Chapter 7, part 4",
-        "appearances": 6
+        "appearances": 6,
+        "usesMsculine": true
     },
     {
         "id": 15,
@@ -149,10 +163,11 @@
         "crewQuality": "Gunner's Mate",
         "crewOrigin": "Poland",
         "fateReason": "Shot",
-        "fateDetail": "Gun",
+        "fatedetail": "Gun",
         "attacker": "John Davies",
         "fateRevealed": "Chapter 9, part 4",
-        "appearances": 12
+        "appearances": 12,
+        "usesMsculine": true
     },
     {
         "id": 16,
@@ -161,7 +176,8 @@
         "crewOrigin": "Scotland",
         "fateReason": "Drowned",
         "fateRevealed": "During chapter 7",
-        "appearances": 6
+        "appearances": 6,
+        "usesMsculine": true
     },
     {
         "id": 17,
@@ -171,7 +187,8 @@
         "fateReason": "Drowned",
         "attacker": "a beast",
         "fateRevealed": "During chapter 7",
-        "appearances": 2
+        "appearances": 2,
+        "usesMsculine": true
     },
     {
         "id": 18,
@@ -179,10 +196,11 @@
         "crewQuality": "Artist",
         "crewOrigin": "England",
         "fateReason": "Crushed",
-        "fateDetail": "Beast",
+        "fatedetail": "Beast",
         "attacker": "a beast",
         "fateRevealed": "Chapter 7, part 2",
-        "appearances": 5
+        "appearances": 5,
+        "usesMsculine": true
     },
     {
         "id": 19,
@@ -190,10 +208,11 @@
         "crewQuality": "Passenger",
         "crewOrigin": "Scotland",
         "fateReason": "Crushed",
-        "fateDetail": "Beast",
+        "fatedetail": "Beast",
         "attacker": "a kraken",
         "fateRevealed": "Chapter 7, part 8",
-        "appearances": 1
+        "appearances": 1,
+        "usesMsculine": false
     },
     {
         "id": 20,
@@ -203,7 +222,8 @@
         "fateReason": "Knifed",
         "attacker": "Edward Nichols",
         "fateRevealed": "Chapter 3, part 1",
-        "appearances": 1
+        "appearances": 1,
+        "usesMsculine": true
     },
     {
         "id": 21,
@@ -211,9 +231,10 @@
         "crewQuality": "Passenger",
         "crewOrigin": "England",
         "fateReason": "Alive",
-        "fateDetail": "Africa",
+        "fatedetail": "Africa",
         "fateRevealed": "During chapter 9",
-        "appearances": 3
+        "appearances": 3,
+        "usesMsculine": false
     },
     {
         "id": 22,
@@ -221,9 +242,10 @@
         "crewQuality": "Passenger",
         "crewOrigin": "England",
         "fateReason": "Alive",
-        "fateDetail": "Africa",
+        "fatedetail": "Africa",
         "fateRevealed": "During chapter 9",
-        "appearances": 3
+        "appearances": 3,
+        "usesMsculine": false
     },
     {
         "id": 23,
@@ -233,7 +255,8 @@
         "fateReason": "Clawed",
         "attacker": "a beast",
         "fateRevealed": "Chapter 4, part 4",
-        "appearances": 6
+        "appearances": 6,
+        "usesMsculine": false
     },
     {
         "id": 24,
@@ -243,7 +266,8 @@
         "fateReason": "Burned",
         "attacker": "the chest's",
         "fateRevealed": "Chapter 4, part 5",
-        "appearances": 9
+        "appearances": 9,
+        "usesMsculine": true
     },
     {
         "id": 25,
@@ -253,7 +277,8 @@
         "fateReason": "Spiked",
         "attacker": "a suspended",
         "fateRevealed": "Chapter 5, part 1",
-        "appearances": 5
+        "appearances": 5,
+        "usesMsculine": true
     },
     {
         "id": 26,
@@ -261,10 +286,11 @@
         "crewQuality": "Passenger",
         "crewOrigin": "Formosa",
         "fateReason": "Shot",
-        "fateDetail": "Gun",
+        "fatedetail": "Gun",
         "attacker": "Henry Brennan",
         "fateRevealed": "Chapter 3, part 2",
-        "appearances": 4
+        "appearances": 4,
+        "usesMsculine": true
     },
     {
         "id": 27,
@@ -272,10 +298,11 @@
         "crewQuality": "Ship's Steward",
         "crewOrigin": "India",
         "fateReason": "Shot",
-        "fateDetail": "Gun",
+        "fatedetail": "Gun",
         "attacker": "Charles Miner",
         "fateRevealed": "Chapter 6, part 7",
-        "appearances": 7
+        "appearances": 7,
+        "usesMsculine": true
     },
     {
         "id": 28,
@@ -285,7 +312,8 @@
         "fateReason": "Burned",
         "attacker": "the chest's",
         "fateRevealed": "Chapter 8, part 1",
-        "appearances": 4
+        "appearances": 4,
+        "usesMsculine": true
     },
     {
         "id": 29,
@@ -295,7 +323,8 @@
         "fateReason": "Killed (sword)",
         "attacker": "Leonid Volkov",
         "fateRevealed": "Chapter 9, part 2",
-        "appearances": 5
+        "appearances": 5,
+        "usesMsculine": true
     },
     {
         "id": 30,
@@ -305,7 +334,8 @@
         "fateReason": "Knifed",
         "attacker": "It-Beng Sia",
         "fateRevealed": "Chapter 4, part 3",
-        "appearances": 5
+        "appearances": 5,
+        "usesMsculine": true
     },
     {
         "id": 31,
@@ -313,10 +343,11 @@
         "crewQuality": "3rd Mate's Steward",
         "crewOrigin": "England",
         "fateReason": "Crushed",
-        "fateDetail": "Cannon",
+        "fatedetail": "Cannon",
         "attacker": "a loose",
         "fateRevealed": "Chapter 7, part 5",
-        "appearances": 4
+        "appearances": 4,
+        "usesMsculine": true
     },
     {
         "id": 32,
@@ -324,9 +355,10 @@
         "crewQuality": "4th Mate's Steward",
         "crewOrigin": "England",
         "fateReason": "Alive",
-        "fateDetail": "Africa",
+        "fatedetail": "Africa",
         "fateRevealed": "During chapter 9",
-        "appearances": 7
+        "appearances": 7,
+        "usesMsculine": true
     },
     {
         "id": 33,
@@ -336,7 +368,8 @@
         "fateReason": "Exploded",
         "attacker": "lit cartridge",
         "fateRevealed": "Chapter 7, part 6",
-        "appearances": 10
+        "appearances": 10,
+        "usesMsculine": true
     },
     {
         "id": 34,
@@ -346,7 +379,8 @@
         "fateReason": "Knifed",
         "attacker": "Olus Wiater",
         "fateRevealed": "Chapter 9, part 6",
-        "appearances": 15
+        "appearances": 15,
+        "usesMsculine": true
     },
     {
         "id": 35,
@@ -356,7 +390,8 @@
         "fateReason": "Burned",
         "attacker": "a beast",
         "fateRevealed": "Chapter 6, part 5",
-        "appearances": 4
+        "appearances": 4,
+        "usesMsculine": true
     },
     {
         "id": 36,
@@ -365,7 +400,8 @@
         "crewOrigin": "Persia",
         "fateReason": "Fell",
         "fateRevealed": "During chapter 7",
-        "appearances": 7
+        "appearances": 7,
+        "usesMsculine": true
     },
     {
         "id": 37,
@@ -373,10 +409,11 @@
         "crewQuality": "Topman",
         "crewOrigin": "Scotland",
         "fateReason": "Shot",
-        "fateDetail": "Gun",
+        "fatedetail": "Gun",
         "attacker": "Edward Nichols",
         "fateRevealed": "Chapter 3, part 3",
-        "appearances": 2
+        "appearances": 2,
+        "usesMsculine": true
     },
     {
         "id": 38,
@@ -386,7 +423,8 @@
         "fateReason": "Electrocuted",
         "attacker": "lightning strike",
         "fateRevealed": "Chapter 6, part 1",
-        "appearances": 5
+        "appearances": 5,
+        "usesMsculine": true
     },
     {
         "id": 39,
@@ -396,7 +434,8 @@
         "fateReason": "Decapitated",
         "attacker": "a beast",
         "fateRevealed": "Chapter 6, part 4",
-        "appearances": 4
+        "appearances": 4,
+        "usesMsculine": true
     },
     {
         "id": 40,
@@ -406,7 +445,8 @@
         "fateReason": "Speared",
         "attacker": "a beast",
         "fateRevealed": "Chapter 4, part 1",
-        "appearances": 4
+        "appearances": 4,
+        "usesMsculine": true
     },
     {
         "id": 41,
@@ -416,7 +456,8 @@
         "fateReason": "Drowned",
         "attacker": "a beast",
         "fateRevealed": "During chapter 7",
-        "appearances": 7
+        "appearances": 7,
+        "usesMsculine": true
     },
     {
         "id": 42,
@@ -426,7 +467,8 @@
         "fateReason": "Speared",
         "attacker": "a beast",
         "fateRevealed": "Chapter 6, part 2",
-        "appearances": 4
+        "appearances": 4,
+        "usesMsculine": true
     },
     {
         "id": 43,
@@ -436,7 +478,8 @@
         "fateReason": "Torn Apart",
         "attacker": "a beast",
         "fateRevealed": "Chapter 7, part 7",
-        "appearances": 8
+        "appearances": 8,
+        "usesMsculine": true
     },
     {
         "id": 44,
@@ -446,7 +489,8 @@
         "fateReason": "Clubbed",
         "attacker": "captain Witterel",
         "fateRevealed": "Chapter 10, part 3",
-        "appearances": 14
+        "appearances": 14,
+        "usesMsculine": true
     },
     {
         "id": 45,
@@ -454,10 +498,11 @@
         "crewQuality": "Topman",
         "crewOrigin": "Russia",
         "fateReason": "Shot",
-        "fateDetail": "Gun",
+        "fatedetail": "Gun",
         "attacker": "Emily Jackson",
         "fateRevealed": "Chapter 9, part 3",
-        "appearances": 11
+        "appearances": 11,
+        "usesMsculine": true
     },
     {
         "id": 46,
@@ -467,7 +512,8 @@
         "fateReason": "Drowned",
         "attacker": "a beast",
         "fateRevealed": "During chapter 4",
-        "appearances": 4
+        "appearances": 4,
+        "usesMsculine": true
     },
     {
         "id": 47,
@@ -477,7 +523,8 @@
         "fateReason": "Drowned",
         "attacker": "a beast",
         "fateRevealed": "During chapter 4",
-        "appearances": 8
+        "appearances": 8,
+        "usesMsculine": true
     },
     {
         "id": 48,
@@ -486,7 +533,8 @@
         "crewOrigin": "England",
         "fateReason": "Drowned",
         "fateRevealed": "During chapter 7",
-        "appearances": 15
+        "appearances": 15,
+        "usesMsculine": true
     },
     {
         "id": 49,
@@ -496,7 +544,8 @@
         "fateReason": "Clubbed",
         "attacker": "Nathan Peters",
         "fateRevealed": "Chapter 7, part 1",
-        "appearances": 12
+        "appearances": 12,
+        "usesMsculine": true
     },
     {
         "id": 50,
@@ -506,7 +555,8 @@
         "fateReason": "Killed",
         "attacker": "Fillip Dahl",
         "fateRevealed": "Chapter 5, part 4",
-        "appearances": 5
+        "appearances": 5,
+        "usesMsculine": true
     },
     {
         "id": 51,
@@ -515,7 +565,8 @@
         "crewOrigin": "India",
         "fateReason": "Died",
         "fateRevealed": "Chapter 2, part 2",
-        "appearances": 4
+        "appearances": 4,
+        "usesMsculine": true
     },
     {
         "id": 52,
@@ -523,10 +574,11 @@
         "crewQuality": "Seaman",
         "crewOrigin": "India",
         "fateReason": "Crushed",
-        "fateDetail": "Cannon",
+        "fatedetail": "Cannon",
         "attacker": "a loose",
         "fateRevealed": "Chapter 7, part 3",
-        "appearances": 12
+        "appearances": 12,
+        "usesMsculine": true
     },
     {
         "id": 53,
@@ -534,10 +586,11 @@
         "crewQuality": "Seaman",
         "crewOrigin": "India",
         "fateReason": "Crushed",
-        "fateDetail": "Cargo",
+        "fatedetail": "Cargo",
         "attacker": "falling cargo",
         "fateRevealed": "Chapter 5, part 3",
-        "appearances": 6
+        "appearances": 6,
+        "usesMsculine": true
     },
     {
         "id": 54,
@@ -546,7 +599,8 @@
         "crewOrigin": "India",
         "fateReason": "Illness",
         "fateRevealed": "Chapter 2, part 1",
-        "appearances": 3
+        "appearances": 3,
+        "usesMsculine": true
     },
     {
         "id": 55,
@@ -556,7 +610,8 @@
         "fateReason": "Spiked",
         "attacker": "a beast",
         "fateRevealed": "Chapter 5, part 1",
-        "appearances": 4
+        "appearances": 4,
+        "usesMsculine": true
     },
     {
         "id": 56,
@@ -566,7 +621,8 @@
         "fateReason": "Knifed",
         "attacker": "captain Witterel",
         "fateRevealed": "Chapter 10, part 2",
-        "appearances": 17
+        "appearances": 17,
+        "usesMsculine": true
     },
     {
         "id": 57,
@@ -575,7 +631,8 @@
         "crewOrigin": "England",
         "fateReason": "Drowned",
         "fateRevealed": "During chapter 7",
-        "appearances": 11
+        "appearances": 11,
+        "usesMsculine": true
     },
     {
         "id": 58,
@@ -585,7 +642,8 @@
         "fateReason": "Speared",
         "attacker": "a beast",
         "fateRevealed": "Chapter 4, part 2",
-        "appearances": 7
+        "appearances": 7,
+        "usesMsculine": true
     },
     {
         "id": 59,
@@ -593,10 +651,11 @@
         "crewQuality": "Seaman",
         "crewOrigin": "England",
         "fateReason": "Shot",
-        "fateDetail": "Cannon",
+        "fatedetail": "Cannon",
         "attacker": "a beast",
         "fateRevealed": "Chapter 7, part 4",
-        "appearances": 9
+        "appearances": 9,
+        "usesMsculine": true
     },
     {
         "id": 60,
@@ -604,9 +663,10 @@
         "crewQuality": "Seaman",
         "crewOrigin": "England",
         "fateReason": "Crushed",
-        "fateDetail": "Cargo",
+        "fatedetail": "Cargo",
         "attacker": "falling cargo",
         "fateRevealed": "Chapter 1, part 1",
-        "appearances": 1
+        "appearances": 1,
+        "usesMsculine": true
     }
 ]
