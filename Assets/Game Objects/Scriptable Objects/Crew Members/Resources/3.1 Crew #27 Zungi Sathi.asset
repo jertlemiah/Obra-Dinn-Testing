@@ -21,11 +21,14 @@ MonoBehaviour:
   currentName: Unknown
   crewName: Zungi Sathi
   crewOrigin: India
-  currentAttacker: Unknown
+  currentAttackerName: Unknown
   quality: {fileID: 11400000, guid: db02b36ba2d643f499892fc74501cccd, type: 2}
+  currentCrewMember: {fileID: 11400000, guid: d3f8a648c1c1eea4e878c6a11d511b2f, type: 2}
+  currentAttacker: {fileID: 11400000, guid: d3f8a648c1c1eea4e878c6a11d511b2f, type: 2}
   currentReason: {fileID: 11400000, guid: 998fcd1b6a25bee4e89289b04d3eeb9e, type: 2}
   acceptableFates:
   - reason: {fileID: 11400000, guid: 64fa88da4d1661a47ac0a1712845595b, type: 2}
-    attacker: Charles Miner
+    attackerName: Charles Miner
+    attacker: {fileID: 11400000, guid: 78ffd8648d6a5884aa1f5e30187de20f, type: 2}
   fateSentence: 
   portrait: {fileID: 21300000, guid: 3b4d1ab90b29be54d82d73b4093cb2a3, type: 3}

@@ -19,10 +19,12 @@ MonoBehaviour:
   isGeneric: 1
   usesMasculine: 1
   currentName: Unknown
-  correctName: 
+  crewName: Unknown Topman
   crewOrigin: Unknown
-  currentAttacker: Unknown
+  currentAttackerName: Unknown
   quality: {fileID: 11400000, guid: a9f54f69b4d9f0441a5b1d81c8ba6b21, type: 2}
+  currentCrewMember: {fileID: 11400000, guid: d3f8a648c1c1eea4e878c6a11d511b2f, type: 2}
+  currentAttacker: {fileID: 11400000, guid: d3f8a648c1c1eea4e878c6a11d511b2f, type: 2}
   currentReason: {fileID: 11400000, guid: 998fcd1b6a25bee4e89289b04d3eeb9e, type: 2}
   acceptableFates: []
   fateSentence: 

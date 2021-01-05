@@ -21,11 +21,14 @@ MonoBehaviour:
   currentName: Unknown
   crewName: Aleksei Toporov
   crewOrigin: Russia
-  currentAttacker: Unknown
+  currentAttackerName: Unknown
   quality: {fileID: 11400000, guid: b164cfb59c903d449b21d0a4125c1163, type: 2}
+  currentCrewMember: {fileID: 11400000, guid: d3f8a648c1c1eea4e878c6a11d511b2f, type: 2}
+  currentAttacker: {fileID: 11400000, guid: d3f8a648c1c1eea4e878c6a11d511b2f, type: 2}
   currentReason: {fileID: 11400000, guid: 998fcd1b6a25bee4e89289b04d3eeb9e, type: 2}
   acceptableFates:
   - reason: {fileID: 11400000, guid: a558259731512e440a41d8503b680ec6, type: 2}
-    attacker: a beast
+    attackerName: a beast
+    attacker: {fileID: 0}
   fateSentence: 
   portrait: {fileID: 21300000, guid: 3b4d1ab90b29be54d82d73b4093cb2a3, type: 3}

@@ -30,7 +30,7 @@ public class FateReasonButton : ButtonController
 
     public void FateButtonPressed()
     {
-        Debug.Log("FateButton has been pressed");
+        Debug.Log("FateButton "+ fateReason.name+ " has been pressed");
         if(hasDetails==false || 
             (hasDetails == false && menuFateReason.isDetailsOpen == true))
         {

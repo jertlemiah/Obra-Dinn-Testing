@@ -4,6 +4,9 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
+  - currentCrewMember: {fileID: 11400000, guid: d3f8a648c1c1eea4e878c6a11d511b2f,
+      type: 2}
+  - currentAttacker: {fileID: 11400000, guid: d3f8a648c1c1eea4e878c6a11d511b2f, type: 2}
   - quality: {fileID: 11400000, guid: 93bf22a89283eea4697a49b9a734de4d, type: 2}
   - currentReason: {fileID: 11400000, guid: 998fcd1b6a25bee4e89289b04d3eeb9e, type: 2}
   - portrait: {fileID: 21300000, guid: 3b4d1ab90b29be54d82d73b4093cb2a3, type: 3}

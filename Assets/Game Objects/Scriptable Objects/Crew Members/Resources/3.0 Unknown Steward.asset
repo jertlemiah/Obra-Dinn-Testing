@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73fe7e53565fa7c4e8300cff8303a7a7, type: 3}
-  m_Name: 3.0 Unknown Stewart
+  m_Name: 3.0 Unknown Steward
   m_EditorClassIdentifier: 
   internalID: 0
   correctFate: 0
@@ -19,10 +19,12 @@ MonoBehaviour:
   isGeneric: 1
   usesMasculine: 1
   currentName: Unknown
-  correctName: 
+  crewName: Unknown Steward
   crewOrigin: Unknown
-  currentAttacker: Unknown
+  currentAttackerName: Unknown
   quality: {fileID: 11400000, guid: cbef7d4d44a29944a8d7f1260920cb91, type: 2}
+  currentCrewMember: {fileID: 11400000, guid: d3f8a648c1c1eea4e878c6a11d511b2f, type: 2}
+  currentAttacker: {fileID: 11400000, guid: d3f8a648c1c1eea4e878c6a11d511b2f, type: 2}
   currentReason: {fileID: 11400000, guid: 998fcd1b6a25bee4e89289b04d3eeb9e, type: 2}
   acceptableFates: []
   fateSentence: 

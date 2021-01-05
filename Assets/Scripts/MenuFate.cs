@@ -7,10 +7,11 @@ using UnityEngine.UI;
 public class MenuFate : MonoBehaviour
 {
     public GameObject UI_FateReasonPopup,
+        UI_CrewMemberPopup,
         portraitObj,
         btn_Name, btn_FateReason, btn_Attacker;
     public TMP_Text name_TMPtext, fateReason_TMPtext, attacker_TMPtext;
-    public CrewMember currentFatePage;
+    public CrewMember currentCrewMemberPage;
     public bool disabled = true;
 
     private void Start()
@@ -25,39 +26,69 @@ public class MenuFate : MonoBehaviour
 
     public void PopulatePage()
     {
-        if (currentFatePage.currentName == "Unknown")
+        if (currentCrewMemberPage.currentCrewMember.crewName == "Unknown")
         {
             name_TMPtext.text = "This unknown soul";
         }
+        else if(currentCrewMemberPage.currentCrewMember.isGeneric)
+        {
+            name_TMPtext.text = "This " + currentCrewMemberPage.currentCrewMember.crewName.ToLower();
+        }
         else
         {
-            name_TMPtext.text = currentFatePage.currentName;
+            name_TMPtext.text = currentCrewMemberPage.currentCrewMember.crewName;
         }
 
-        fateReason_TMPtext.text = currentFatePage.UpdateFateSentence();
-        if (currentFatePage.hasAttacker == true)
+        fateReason_TMPtext.text = currentCrewMemberPage.UpdateFateSentence();
+        if (currentCrewMemberPage.hasAttacker == true)
         {
             btn_Attacker.SetActive(true);
-            attacker_TMPtext.text = "by " + currentFatePage.currentAttacker;
+            if (currentCrewMemberPage.currentAttacker.crewName == "Unknown")
+            {
+                attacker_TMPtext.text = "by an unknown attacker.";
+            }
+            else if (currentCrewMemberPage.currentAttacker.isGeneric)
+            {
+                attacker_TMPtext.text = "by an unknown " + currentCrewMemberPage.currentAttacker.quality.surrole.ToLower() + ".";
+            }
+            else
+            {
+                attacker_TMPtext.text = "by " + currentCrewMemberPage.currentAttacker.crewName + ".";
+            }
+            
         }
         else
         {
             btn_Attacker.SetActive(false);
         }
 
-        portraitObj.GetComponent<Image>().sprite = currentFatePage.portrait;
+        portraitObj.GetComponent<Image>().sprite = currentCrewMemberPage.portrait;
     }
 
     public void SelectNewFate(FateReason fateReason)
     {
-        currentFatePage.currentReason = fateReason;
-        currentFatePage.UpdateFateSentence();
+        currentCrewMemberPage.currentReason = fateReason;
+        currentCrewMemberPage.UpdateFateSentence();
         ToggleFateReasonPopup();
+    }
+
+    public void SelectNewCurrentCrewMember(CrewMember newCrewMember)
+    {
+        currentCrewMemberPage.currentCrewMember = newCrewMember;
+        currentCrewMemberPage.UpdateFateSentence();
+        ToggleFateCrewPopup();
+    }
+
+    public void SelectNewAttacker(CrewMember newAttacker)
+    {
+        currentCrewMemberPage.currentAttacker = newAttacker;
+        currentCrewMemberPage.UpdateFateSentence();
+        ToggleFateCrewPopup();
     }
 
     public void UpdatedSelectedFate(CrewMember newFateDetails)
     {
-        currentFatePage.currentName = newFateDetails.currentName;
+        currentCrewMemberPage.currentName = newFateDetails.currentName;
     }
 
     public void ToggleFateReasonPopup()
@@ -68,6 +99,27 @@ public class MenuFate : MonoBehaviour
         }
         else {
             UI_FateReasonPopup.SetActive(true);
+        }
+    }
+
+    public void ToggleFateCrewPopup()
+    {
+        ToggleFateCrewPopup(false);
+    }
+
+    public void ToggleFateCrewPopup(bool openAttackerWindow)
+    {
+        if (UI_CrewMemberPopup.activeSelf == true)
+        {
+            UI_CrewMemberPopup.SetActive(false);
+
+            PopulatePage();
+        }
+        else
+        {
+            UI_CrewMemberPopup.SetActive(true);
+            UI_CrewMemberPopup.GetComponent<MenuFateCrew>().isAttackerWindow = openAttackerWindow;
+            UI_CrewMemberPopup.GetComponent<MenuFateCrew>().ChangeToPageNumber(1);
         }
     }
 
@@ -116,12 +168,12 @@ public class MenuFate : MonoBehaviour
 
     public void OpenFatePopup(CrewMember fatePage)
     {
-        currentFatePage = fatePage;
+        currentCrewMemberPage = fatePage;
         UI_FateReasonPopup.SetActive(true);
 
-        name_TMPtext.text = currentFatePage.currentName;
-        fateReason_TMPtext.text = currentFatePage.currentReason.rawSentence;
-        attacker_TMPtext.text = currentFatePage.currentAttacker;
+        name_TMPtext.text = currentCrewMemberPage.currentName;
+        fateReason_TMPtext.text = currentCrewMemberPage.currentReason.rawSentence;
+        attacker_TMPtext.text = currentCrewMemberPage.currentAttackerName;
     }
 
     //public void OpenFatePopup(FatePage fatePage)

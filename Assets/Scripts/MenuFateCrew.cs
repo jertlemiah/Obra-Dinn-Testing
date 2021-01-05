@@ -31,6 +31,8 @@ public class MenuFateCrew : MonoBehaviour
     [SerializeField]
     public int pageCount = 4;
 
+    public bool isAttackerWindow = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,16 +64,19 @@ public class MenuFateCrew : MonoBehaviour
 
     public void PopulateButtons(List<GameObject> btnObjList, List<CrewMember> sourceList)
     {
+        Debug.Log("PopulateButtons function for MenuFateCrew called");
+
         int i = 0;
         foreach (GameObject buttonObj in btnObjList)
         {
             ButtonControllerCrew buttonScript = buttonObj.GetComponent<ButtonControllerCrew>();
 
-            Debug.Log("sourceList.Count: " + sourceList.Count);
-            Debug.Log("btnObjList.Count: " + btnObjList.Count);
+            //Debug.Log("sourceList.Count: " + sourceList.Count);
+            //Debug.Log("btnObjList.Count: " + btnObjList.Count);
 
             // If there is no further information to populate list with, turn off button
-            if ((i + (currentPage - 1) * btnObjList.Count) >= sourceList.Count)
+            if (!isAttackerWindow && ((i + (currentPage - 1) * btnObjList.Count + 1) >= sourceList.Count)
+                || isAttackerWindow && ((i + (currentPage - 1) * btnObjList.Count) >= sourceList.Count))
             {
                 buttonScript.SetButtonInactive();
                 //buttonScript.enabled = false;             
@@ -79,21 +84,34 @@ public class MenuFateCrew : MonoBehaviour
             // Else populate button with info
             else
             {
-                Debug.Log("Current Page" + currentPage);
-                Debug.Log("About to try to access element: " + (i + (currentPage - 1) * btnObjList.Count));
+                //Debug.Log("Current Page" + currentPage);
+                //Debug.Log("About to try to access element: " + (i + (currentPage - 1) * btnObjList.Count));
                 CrewMember newCrewMember = sourceList[i + (currentPage - 1) * btnObjList.Count];
+
+                // If the attacker window is not open, go +1 places to skip the beast, but do not skip Unknown
+                if(!isAttackerWindow && 
+                    newCrewMember.quality.surrole != "Unknown") {
+                    newCrewMember = sourceList[i + (currentPage - 1) * btnObjList.Count + 1];
+                }
                 buttonScript.ChangeCrew(newCrewMember);
             }
             i++;
         }
     }
 
-    public void PopulateButton(int crewNum, string crewName, string quality, string crewOrigin)
-    {
-        //GameObject button = btnObjList_Crew[0];
-        ButtonControllerCrew btn = btnObjList_Crew[0].GetComponent<ButtonControllerCrew>();
-        btn.UpdateText(crewNum.ToString(), crewName, quality, crewOrigin);
+    //public void PopulateSingleButton(int crewNum, string crewName, string quality, string crewOrigin)
+    //{
+    //    //GameObject button = btnObjList_Crew[0];
+    //    ButtonControllerCrew btn = btnObjList_Crew[0].GetComponent<ButtonControllerCrew>();
+    //    btn.UpdateText(crewNum.ToString(), crewName, quality, crewOrigin);
 
+    //}
+
+    public void ChangeToPageNumber(int pageNumber)
+    {
+        pageNumber = Mathf.Clamp(currentPage, 1, pageCount);
+
+        ChangePage(pageNumber-currentPage);
     }
 
     public void ChangePage(int pagesTurned)
@@ -177,7 +195,7 @@ public class MenuFateCrew : MonoBehaviour
     private void LoadCrewMemberList()
     {
         crewMemberList.Clear();
-        crewMemberList = Resources.LoadAll(pathToCrewMembers, typeof(CrewMember)).Cast<CrewMember>().ToList();
+        crewMemberList = Resources.LoadAll("", typeof(CrewMember)).Cast<CrewMember>().ToList();
         Debug.Log("Loaded " + crewMemberList.Count + " crewmembers");
     }
 
@@ -190,6 +208,10 @@ public class MenuFateCrew : MonoBehaviour
 
     public void ReadFateCrewFile()
     {
+        crewMemberList.Clear();
+        qualityList.Clear();
+        fateReasonsList.Clear();
+
         List<CrewMemberJson> fateCrewJsonList = JsonConvert.DeserializeObject<List<CrewMemberJson>>(File.ReadAllText(fateCrewJsonFileName));
         LoadCreatedFateReasons();
         LoadQualityList();
@@ -248,9 +270,28 @@ public class MenuFateCrew : MonoBehaviour
 
         foreach (var crewMember in crewMemberList)
         {
+            AcceptableFate acceptableFate = crewMember.acceptableFates[0];
+            if (acceptableFate.reason.requiresAttacker)
+            {
+                string attackerName = acceptableFate.attackerName;
+                foreach (var crewMember2 in crewMemberList)
+                {
+                    if (attackerName == crewMember2.crewName)
+                    {
+                        crewMember.acceptableFates[0].attacker = crewMember2;
+                    }
+                }
+            }
+
+            string crewNum;
+            if (crewMember.internalID <= 9)
+                crewNum = "0" + crewMember.internalID;
+            else
+                crewNum = crewMember.internalID.ToString();
+
             //"1.1 Crew #4 Martin Perrott"
             string assetName = crewMember.quality.surroleOrder.ToString() 
-                + ".1 Crew #" + crewMember.internalID 
+                + ".1 Crew #" + crewNum
                 + " " + crewMember.crewName 
                 + ".asset";
 

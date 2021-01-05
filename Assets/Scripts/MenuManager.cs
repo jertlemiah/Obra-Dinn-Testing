@@ -7,10 +7,12 @@ public class MenuManager : Singleton<MenuManager>
     private InputManager inputManager;
     public GameObject obj_Book,
         obj_FatePageMenu,
-        obj_FateReasonMenu;
+        obj_FateReasonMenu,
+        obj_CrewMenu;
     public MenuFateReason menuFateReason;
     public MenuFate menuFate;
     public MenuBook menuBook;
+    public MenuFateCrew menuFateCrew;
     private bool IsBookOpen = false;
     private bool IsFateOpen = false;
     private bool IsFateReasonOpen = false;
@@ -22,6 +24,7 @@ public class MenuManager : Singleton<MenuManager>
         menuFateReason = obj_FateReasonMenu.GetComponent<MenuFateReason>();
         menuFate = obj_FatePageMenu.GetComponent<MenuFate>();
         menuBook = obj_Book.GetComponent<MenuBook>();
+        menuFateCrew = obj_CrewMenu.GetComponent<MenuFateCrew>();
 
         // Every time the OpenBook action is performed, run the OpenBook function here
         inputManager.GetInputActions().Player.ToggleBook.performed += context => ToggleBook();

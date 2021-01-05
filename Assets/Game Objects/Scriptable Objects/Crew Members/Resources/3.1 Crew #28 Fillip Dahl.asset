@@ -21,11 +21,14 @@ MonoBehaviour:
   currentName: Unknown
   crewName: Fillip Dahl
   crewOrigin: Sweden
-  currentAttacker: Unknown
+  currentAttackerName: Unknown
   quality: {fileID: 11400000, guid: 73ca994b8c675564d8a8ea6c78d17d4e, type: 2}
+  currentCrewMember: {fileID: 11400000, guid: d3f8a648c1c1eea4e878c6a11d511b2f, type: 2}
+  currentAttacker: {fileID: 11400000, guid: d3f8a648c1c1eea4e878c6a11d511b2f, type: 2}
   currentReason: {fileID: 11400000, guid: 998fcd1b6a25bee4e89289b04d3eeb9e, type: 2}
   acceptableFates:
   - reason: {fileID: 11400000, guid: 662afab0b8dcf24409486e457beef653, type: 2}
-    attacker: the chest's
+    attackerName: the chest's
+    attacker: {fileID: 0}
   fateSentence: 
   portrait: {fileID: 21300000, guid: 3b4d1ab90b29be54d82d73b4093cb2a3, type: 3}

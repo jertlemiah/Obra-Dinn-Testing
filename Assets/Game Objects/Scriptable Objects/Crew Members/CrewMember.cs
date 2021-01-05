@@ -18,10 +18,15 @@ public class CrewMember : ScriptableObject
         //currentReason = "Unknown",
         //currentDetails = "Unknown",
         crewOrigin = "Unknown",
-        currentAttacker = "Unknown";
+        currentAttackerName = "Unknown";
 
     [SerializeField]
     public Quality quality;
+
+    [SerializeField]
+    public CrewMember currentCrewMember,
+        currentAttacker;
+   
 
     [SerializeField]
     public FateReason currentReason;
@@ -67,7 +72,7 @@ public class CrewMember : ScriptableObject
 
         foreach (AcceptableFate fate in acceptableFates)
         {
-            if(fate.attacker == currentAttacker && fate.reason == currentReason)
+            if(fate.attackerName == currentAttackerName && fate.reason == currentReason)
             {
                 correctFate = true;
                 return correctFate;
@@ -85,13 +90,14 @@ public class CrewMember : ScriptableObject
 public class AcceptableFate
 {
     public FateReason reason;
-    public string attacker;
+    public string attackerName;
+    public CrewMember attacker;
 
     public AcceptableFate() { }
 
     public AcceptableFate(FateReason reason, string attacker)
     {
         this.reason = reason;
-        this.attacker = attacker;
+        this.attackerName = attacker;
     }
 }
