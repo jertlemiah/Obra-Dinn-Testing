@@ -13,7 +13,9 @@ public class MenuFateReason : Singleton<MenuFateReason>
 {
     public string fateReasonsJsonFileName = "Assets/Scripts/FateReasons.txt";
     public List<FateReason> fateReasonsList = new List<FateReason>(),
+        fateReasonsRawList = new List<FateReason>(),
         fateDetailsList = new List<FateReason>();
+    public List<FateReasonButton> fateButtonContentList = new List<FateReasonButton>();
     //public FateReason[] fateReasons;
     public GameObject block_FateReaons, block_FateDetails,
         panel_FateReasonMenu,
@@ -132,6 +134,52 @@ public class MenuFateReason : Singleton<MenuFateReason>
         }
     }
 
+    private void PopulateButtons(List<GameObject> btnObjList, List<FateReasonButton> sourceList, bool autoSize)
+    {
+        int i = 0, numActive = 0;
+        FateReasonButton buttonDetails;
+
+        foreach (GameObject buttonObj in btnObjList)
+        {
+            FateReasonButton buttonScript = buttonObj.GetComponent<FateReasonButton>();
+
+            // If there is no further information to populate list with, turn off button
+            if ((i + (currentPage - 1) * btnObjList.Count) >= sourceList.Count)
+            {
+                if (autoSize == true)
+                    buttonObj.SetActive(false);
+                else
+                {
+                    buttonScript.SetButtonInactive();
+                    buttonScript.enabled = false;
+                }     
+            }
+            // Else, populate button with correct information
+            else
+            {
+                buttonDetails = sourceList[i + (currentPage - 1) * btnObjList.Count];
+
+                buttonObj.SetActive(true);
+                buttonScript.enabled = true;
+                numActive++;
+
+                buttonScript = buttonDetails;
+            }
+            i++;
+        }
+
+        if (autoSize == true)
+        {
+            UpdateMenuHeight(numActive);
+        }
+        else
+        {
+            GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, panelDefaultHeight);
+
+            //panel_FateReasonMenu.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, panelDefaultHeight);
+        }
+    }
+
     private void PopulateButtons(List<GameObject> btnObjList, List<FateReason> sourceList, bool autoSize)
     {
         //pageCount = (int)Mathf.Ceil(sourceList.Count / btnObjList.Count);
@@ -212,11 +260,6 @@ public class MenuFateReason : Singleton<MenuFateReason>
                     i++;
                     previousFate = currentFate;
                 } while (again);
-                
-                
-
-                
-
                 //if (autoSize == true)
                 //{
                 //    buttonObj.SetActive(true);
@@ -226,11 +269,8 @@ public class MenuFateReason : Singleton<MenuFateReason>
                 //    buttonScript.enabled = true;
                 //    buttonScript.UpdateFateReason(sourceList[i + (currentPage - 1) * btnObjList.Count]);
                 //}
-                
 
-            }
-            
-            
+            }         
         }
         if(autoSize == true)
         {
@@ -347,9 +387,78 @@ public class MenuFateReason : Singleton<MenuFateReason>
 
     private void LoadCreatedFateReasons()
     {
-        fateReasonsList.Clear();
-        fateReasonsList = Resources.LoadAll("", typeof(FateReason)).Cast< FateReason>().ToList<FateReason>();
+        fateReasonsRawList.Clear();
+        fateReasonsRawList = Resources.LoadAll("", typeof(FateReason)).Cast< FateReason>().ToList<FateReason>();
         //Debug.Log("Loaded " + fateReasons.Count + " fateReason scriptable objects from the folder: " + fatesDestinationFolder);
+
+        int i = 0;
+        FateReasonButton buttonScript;// = new FateReasonButton();
+        FateReason currentFate = ScriptableObject.CreateInstance<FateReason>(),
+            previousFate = ScriptableObject.CreateInstance<FateReason>();
+
+        foreach (FateReason reason in fateReasonsRawList)
+        {
+            // If the previousFate had details, then check if current will be of the same supertype
+            if (previousFate.hasDetails)
+            {
+
+            }
+            //
+            if (!reason.hasDetails)
+            {
+                //currentFate = fateReasonsRawList[i + (currentPage - 1) * btnObjList.Count];
+                buttonScript = new FateReasonButton();
+                buttonScript.UpdateFateReason(currentFate);
+                fateButtonContentList.Add(buttonScript);
+            }
+
+            if (reason.hasDetails && (previousFate.fateName == currentFate.fateName))
+            {
+                buttonScript.AddNewDetail(currentFate);
+            }
+            
+            
+            // If there are no more fates to read OR
+
+            if (i + (currentPage - 1) * btnObjList.Count >= sourceList.Count)
+            {
+                break;
+            }
+            currentFate = fateReasonsRawList[i + (currentPage - 1) * btnObjList.Count];
+
+            // if this is a retry, and the previous has a different name than the current
+            // then this should be a new button, not compressed into current button
+            if (again == true && previousFate.fateName != currentFate.fateName)
+            {
+                break;
+            }
+
+            // If there are details, need to compress them into a single button
+            if (isDetailsOpen == false && currentFate.hasDetails == true)
+            {
+                // if first time, repopulate the main fate of the button
+                if (previousFate.fateName != currentFate.fateName)
+                {
+                    buttonScript.UpdateFateReason(currentFate);
+                    buttonScript.AddNewDetail(currentFate);
+                    buttonScript.hasDetails = true;
+                }
+                //else add to that button list of details
+                else if (previousFate.fateName == currentFate.fateName)
+                {
+                    buttonScript.AddNewDetail(currentFate);
+                }
+                again = true;
+            }
+            else
+            {
+                buttonScript.UpdateFateReason(currentFate);
+                again = false;
+            }
+            i++;
+            previousFate = currentFate;
+        }
+
     }
 
     public void ReadFateReasonsFile()
