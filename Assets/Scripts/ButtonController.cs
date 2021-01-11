@@ -8,19 +8,19 @@ public class ButtonController : MonoBehaviour,
     ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField]
-    GameObject UiSelector, UiSelected, UiPressed;
+    public  GameObject UiSelector, UiSelected, UiPressed;
     
     [SerializeField]
-    Color colorDarkText, colorLightText;
+    public  Color colorDarkText, colorLightText;
     [SerializeField]
-    bool hasText = false;
+    public  bool hasText = false;
     [SerializeField]
     public TMP_Text tmpText;
 
     [SerializeField]
-    bool isFateBox = false;
+    public  bool isFateBox = false;
     [SerializeField]
-    CrewMember fatePage;
+    public  CrewMember fatePage;
 
     [SerializeField]
     public bool disableVisuals = false;
@@ -41,7 +41,7 @@ public class ButtonController : MonoBehaviour,
 
     private void OnDisable()
     {
-        this.UiSelected.SetActive(false);
+        UiSelected.SetActive(false);
     }
 
     public void OnSelect(BaseEventData eventData)

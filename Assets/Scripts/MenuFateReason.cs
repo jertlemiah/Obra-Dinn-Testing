@@ -93,6 +93,7 @@ public class MenuFateReason : Singleton<MenuFateReason>
 
         // Populate the buttons with info
         PopulateButtons(btnObjList_Reasons, fateReasonsList, false);
+        PopulateButtons(btnObjList_Reasons, fateButtonContentList, false);
 
         // If first page, turn off left turn page button
         if (currentPage == 1)
@@ -391,72 +392,24 @@ public class MenuFateReason : Singleton<MenuFateReason>
         fateReasonsRawList = Resources.LoadAll("", typeof(FateReason)).Cast< FateReason>().ToList<FateReason>();
         //Debug.Log("Loaded " + fateReasons.Count + " fateReason scriptable objects from the folder: " + fatesDestinationFolder);
 
-        int i = 0;
-        FateReasonButton buttonScript;// = new FateReasonButton();
-        FateReason currentFate = ScriptableObject.CreateInstance<FateReason>(),
-            previousFate = ScriptableObject.CreateInstance<FateReason>();
+        FateReasonButton buttonScript = new FateReasonButton();
+        FateReason previousReason = ScriptableObject.CreateInstance<FateReason>();
 
-        foreach (FateReason reason in fateReasonsRawList)
+        foreach (FateReason currentReason in fateReasonsRawList)
         {
-            // If the previousFate had details, then check if current will be of the same supertype
-            if (previousFate.hasDetails)
+            // If the previousFate had details, and is of the same type as the previous
+            if (currentReason.hasDetails && (previousReason.fateName == currentReason.fateName))
             {
-
+                buttonScript.AddNewDetail(currentReason);
             }
-            //
-            if (!reason.hasDetails)
-            {
-                //currentFate = fateReasonsRawList[i + (currentPage - 1) * btnObjList.Count];
-                buttonScript = new FateReasonButton();
-                buttonScript.UpdateFateReason(currentFate);
-                fateButtonContentList.Add(buttonScript);
-            }
-
-            if (reason.hasDetails && (previousFate.fateName == currentFate.fateName))
-            {
-                buttonScript.AddNewDetail(currentFate);
-            }
-            
-            
-            // If there are no more fates to read OR
-
-            if (i + (currentPage - 1) * btnObjList.Count >= sourceList.Count)
-            {
-                break;
-            }
-            currentFate = fateReasonsRawList[i + (currentPage - 1) * btnObjList.Count];
-
-            // if this is a retry, and the previous has a different name than the current
-            // then this should be a new button, not compressed into current button
-            if (again == true && previousFate.fateName != currentFate.fateName)
-            {
-                break;
-            }
-
-            // If there are details, need to compress them into a single button
-            if (isDetailsOpen == false && currentFate.hasDetails == true)
-            {
-                // if first time, repopulate the main fate of the button
-                if (previousFate.fateName != currentFate.fateName)
-                {
-                    buttonScript.UpdateFateReason(currentFate);
-                    buttonScript.AddNewDetail(currentFate);
-                    buttonScript.hasDetails = true;
-                }
-                //else add to that button list of details
-                else if (previousFate.fateName == currentFate.fateName)
-                {
-                    buttonScript.AddNewDetail(currentFate);
-                }
-                again = true;
-            }
+            // else, create a new button
             else
             {
-                buttonScript.UpdateFateReason(currentFate);
-                again = false;
+                buttonScript = new FateReasonButton();
+                buttonScript.UpdateFateReason(currentReason);
+                fateButtonContentList.Add(buttonScript);
+                previousReason = currentReason;
             }
-            i++;
-            previousFate = currentFate;
         }
 
     }
